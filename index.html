@@ -3,6 +3,8 @@
 <head>
   <meta charset="utf-8">
   
+
+  
   <title>Existend Docs</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta property="og:type" content="website">
@@ -14,52 +16,74 @@
 <meta name="twitter:title" content="Existend Docs">
   
   
+    <link rel="icon" href="/favicon.png">
+  
   
     <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
   
-  <link rel="stylesheet" href="/Docs/lib/font-awesome/css/font-awesome.min.css?v=4.7.0">
-  <link rel="stylesheet" href="/Docs/lib/fancybox/dist/jquery.fancybox.min.css">
-  <link rel="stylesheet" href="/Docs/css/main.css">
-  <script src="/Docs/lib/jquery/dist/jquery.min.js"></script>
-  
-  
-  
-  
+  <link rel="stylesheet" href="/Docs/css/style.css">
 </head>
+
 <body>
-  <div id="wrapper">
-    <header id="header" class="clearfix">
-	<a id="logo" href="/Docs/" title="Existend Docs">Existend Docs</a>
-	
-	<nav id="nav-menu" class="clearfix">
-		<form id="search" method="post" action="./" role="search">
-			<input id="search-input" type="text" name="s" class="inputbox" value="Поиск" onfocus="if (value =='Поиск'){value =''}" onblur="if (value ==''){value='Поиск'}">
-		</form>
-		<ul>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/Docs/" id="logo">Existend Docs</a>
+      </h1>
       
-				
-        <li><a class="main-nav-link" href="/Docs/">Домашняя страница</a></li>
-      
-				
-        <li><a class="main-nav-link" href="/Docs/archives">Архивы</a></li>
-      
-		</ul>
-	</nav>
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/Docs/">Home</a>
+        
+          <a class="main-nav-link" href="/Docs/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+        <a id="nav-search-btn" class="nav-icon" title="Поиск"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://kir9819.github.io/Docs"></form>
+      </div>
+    </div>
+  </div>
 </header>
-    <section id="main" class="clearfix">
-  <article class="post">
-      
-        
-          <h1><a href="/Docs/2018/02/09/[ru]Node_express_mongoDb/">Инструкция по созданию серверного приложения на nodejs + express + mongoDB</a></h1>
-        
-      
-      <div class="post-content ">
+      <div class="outer">
+        <section id="main">
+  
+    <article id="post-[ru]Node_express_mongoDb" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/Docs/2018/02/09/[ru]Node_express_mongoDb/" class="article-date">
+  <time datetime="2018-02-09T18:54:28.000Z" itemprop="datePublished">2018-02-09</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/Docs/categories/RU/">RU</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
         
   
+    <h1 itemprop="name">
+      <a class="article-title" href="/Docs/2018/02/09/[ru]Node_express_mongoDb/">Инструкция по созданию серверного приложения на nodejs + express + mongoDB</a>
+    </h1>
+  
 
-
-
-
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
         <h1 id="Инструкция-по-созданию-серверного-приложения-на-nodejs-express-mongodb"><a href="#Инструкция-по-созданию-серверного-приложения-на-nodejs-express-mongodb" class="headerlink" title="Инструкция по созданию серверного приложения на nodejs + express + mongodb"></a>Инструкция по созданию серверного приложения на nodejs + express + mongodb</h1><hr>
 <p>Для понимания подойдет простейший пример, в котором мы сможем создавать, читать, обновлять и удалять простые текстовые документы</p>
 <h3 id="Установка-компонентов"><a href="#Установка-компонентов" class="headerlink" title="Установка компонентов"></a>Установка компонентов</h3><p>На официальном сайте node (<a href="https://nodejs.org/" target="_blank" rel="noopener">https://nodejs.org/</a>) есть подробные инструкции по установке<br>Примеры для самого распространенного, если не хочется переходить и искать</p>
@@ -107,22 +131,47 @@
 <li><a href="http://coenraets.org/blog/2012/10/creating-a-rest-api-using-node-js-express-and-mongodb/" target="_blank" rel="noopener">http://coenraets.org/blog/2012/10/creating-a-rest-api-using-node-js-express-and-mongodb/</a></li>
 </ol>
 
-      </div>
-  </article>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://kir9819.github.io/Docs/2018/02/09/[ru]Node_express_mongoDb/" data-id="cjdhmmau7000db08d6dh3iv56" class="article-share-link">Поделиться</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/Docs/tags/Koa/">Koa</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/Docs/tags/MongoDB/">MongoDB</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/Docs/tags/Node/">Node</a></li></ul>
 
-  <article class="post">
-      
-        
-          <h1><a href="/Docs/2018/02/09/[ru]node_koa_postrge/">Инструкция по созданию серверного приложения на nodejs + koa + postgresql</a></h1>
-        
-      
-      <div class="post-content ">
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-[ru]node_koa_postrge" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/Docs/2018/02/09/[ru]node_koa_postrge/" class="article-date">
+  <time datetime="2018-02-09T18:54:28.000Z" itemprop="datePublished">2018-02-09</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/Docs/categories/RU/">RU</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
         
   
+    <h1 itemprop="name">
+      <a class="article-title" href="/Docs/2018/02/09/[ru]node_koa_postrge/">Инструкция по созданию серверного приложения на nodejs + koa + postgresql</a>
+    </h1>
+  
 
-
-
-
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
         <h1 id="Серверное-приложение-Node-js-Koa-PostgreSQL"><a href="#Серверное-приложение-Node-js-Koa-PostgreSQL" class="headerlink" title="Серверное приложение Node.js + Koa + PostgreSQL"></a>Серверное приложение Node.js + Koa + PostgreSQL</h1><p>Koa - микрофреймфорк, разработанный командой разработчиков фреймворка Express, и призванный использовать самые последние стандарты языка JavaScript.<br>Koa “предлагает” активно использовать синтаксис <code>async/await</code>, который позволяет избавиться от ужасно нечитаемого “callback hell” и является более лучшей альтернативой Promise. Углубляться в синтаксис здесь не будем, это не тема статьи.<br>Сам Koa, являясь микрофреймворком, из коробки содержит только middleware систему, в нем даже нет маршрутизации. Все это можно получить, подключив необходимую функциональность в middleware chain.</p>
 <h3 id="Требования"><a href="#Требования" class="headerlink" title="Требования"></a>Требования</h3><p>Koa требует версию Node не меньше <code>7.6.0</code>.<br>Использовать более старые версии можно, если подключить Babel, но тогда немного теряется посыл самого Koa (см. выше).<br>Версия PostgreSQL нас не интересует, поставим самую последнюю.</p>
 <h3 id="Подготовка-среды"><a href="#Подготовка-среды" class="headerlink" title="Подготовка среды"></a>Подготовка среды</h3><h4 id="Про-Node-js"><a href="#Про-Node-js" class="headerlink" title="Про Node.js"></a>Про Node.js</h4><p>Если Node не установлен, то вам необходимо <a href="https://nodejs.org/en/download/" target="_blank" rel="noopener">сюда</a>. Если же у вас еще и Linux или macOS, можно установить через менеджер пакетов - <a href="https://nodejs.org/en/download/package-manager/" target="_blank" rel="noopener">здесь</a> сказано, как.<br>Чтобы проверить, что с Node все в порядке, можно набрать команду:</p>
@@ -186,22 +235,47 @@
 <li><a href="https://github.com/sindresorhus/awesome-nodejs" target="_blank" rel="noopener">Awesome Node.js</a></li>
 </ul>
 
-      </div>
-  </article>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://kir9819.github.io/Docs/2018/02/09/[ru]node_koa_postrge/" data-id="cjdhlbmfi0000408dmvrzmo1h" class="article-share-link">Поделиться</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/Docs/tags/Koa/">Koa</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/Docs/tags/Node/">Node</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/Docs/tags/PostgreSQL/">PostgreSQL</a></li></ul>
 
-  <article class="post">
-      
-        
-          <h1><a href="/Docs/2018/02/09/[en]node_express/">Инструкция по созданию серверного приложения на nodejs + express</a></h1>
-        
-      
-      <div class="post-content ">
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-[en]node_express" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/Docs/2018/02/09/[en]node_express/" class="article-date">
+  <time datetime="2018-02-09T18:54:28.000Z" itemprop="datePublished">2018-02-09</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/Docs/categories/EN/">EN</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
         
   
+    <h1 itemprop="name">
+      <a class="article-title" href="/Docs/2018/02/09/[en]node_express/">Инструкция по созданию серверного приложения на nodejs + express</a>
+    </h1>
+  
 
-
-
-
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
         <h1 id="Instructions-for-creating-a-server-application-on-nodejs-express"><a href="#Instructions-for-creating-a-server-application-on-nodejs-express" class="headerlink" title="Instructions for creating a server application on nodejs + express"></a>Instructions for creating a server application on nodejs + express</h1><h5 id="Attention"><a href="#Attention" class="headerlink" title="Attention"></a>Attention</h5><p>If you don’t have knowledge of JavaScript, you need to do something about it. For example, read the online tutorial: <a href="https://learn.javascript.ru/" target="_blank" rel="noopener">https://learn.javascript.ru/</a></p>
 <h3 id="Node-js-what-is-it"><a href="#Node-js-what-is-it" class="headerlink" title="Node.js what is it?"></a>Node.js what is it?</h3><p><code>Node.js</code> is a JavaScript runtime built on Chrome’s V8 JavaScript engine. Node.js uses an event-driven, non-blocking I/O model that makes it light and efficient. Node.js’ package ecosystem, <code>npm</code>, is the largest ecosystem of open source libraries in the world.</p>
 <h3 id="Installation"><a href="#Installation" class="headerlink" title="Installation"></a>Installation</h3><p>Go to the official site <a href="https://nodejs.org/en/" target="_blank" rel="noopener">https://nodejs.org/en/</a> to download it. On the main page we see two possible options for download: the latest version of NodeJS and the LTS version.</p>
@@ -238,22 +312,47 @@
 <p>npm:<br><a href="https://www.npmjs.com/" target="_blank" rel="noopener">https://www.npmjs.com/</a></p>
 <p>express:<br><a href="http://expressjs.com/ru/" target="_blank" rel="noopener">http://expressjs.com/ru/</a><br><a href="https://nodeguide.ru/doc/modules-you-should-know/express/" target="_blank" rel="noopener">https://nodeguide.ru/doc/modules-you-should-know/express/</a><br><a href="http://expressjs.com/ru/4x/api.html" target="_blank" rel="noopener">http://expressjs.com/ru/4x/api.html</a> - express api directory </p>
 
-      </div>
-  </article>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://kir9819.github.io/Docs/2018/02/09/[en]node_express/" data-id="cjdhmmatc0001b08dd603m5o7" class="article-share-link">Поделиться</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/Docs/tags/Express/">Express</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/Docs/tags/Node/">Node</a></li></ul>
 
-  <article class="post">
-      
-        
-          <h1><a href="/Docs/2018/02/09/[en]frameworks_node/">Обзор фреймворков для создания серверного приложения на nodejs</a></h1>
-        
-      
-      <div class="post-content ">
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-[en]frameworks_node" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/Docs/2018/02/09/[en]frameworks_node/" class="article-date">
+  <time datetime="2018-02-09T18:54:28.000Z" itemprop="datePublished">2018-02-09</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/Docs/categories/EN/">EN</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
         
   
+    <h1 itemprop="name">
+      <a class="article-title" href="/Docs/2018/02/09/[en]frameworks_node/">Обзор фреймворков для создания серверного приложения на nodejs</a>
+    </h1>
+  
 
-
-
-
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
         <h1 id="Review-of-frameworks-for-creating-a-server-application-on-nodejs"><a href="#Review-of-frameworks-for-creating-a-server-application-on-nodejs" class="headerlink" title="Review of frameworks for creating a server application on nodejs"></a>Review of frameworks for creating a server application on nodejs</h1><h3 id="What-is-Node-js"><a href="#What-is-Node-js" class="headerlink" title="What is Node.js?"></a>What is Node.js?</h3><p>Node or Node.js is a server implementation of the JavaScript programming language, based on the V8 engine. It is designed to create scalable distributed network applications, such as a web server. Node.js for purposes of use is similar to Twisted frameworks in Python and EventMachine in Ruby. Unlike most JavaScript programs, this framework is executed not on the client’s browser, but on the server side.</p>
 <h3 id="What-is-framework"><a href="#What-is-framework" class="headerlink" title="What is framework?"></a>What is framework?</h3><p>framework is a set of tools, libraries, good code that will help turn routine tasks into modules that can be used repeatedly. The task of the framework is to allow the designer or developer to focus on tasks that are unique within this project. In other words, do not reinvent the wheel time after time.</p>
 <h2 id="Now-the-frameworks-themselves"><a href="#Now-the-frameworks-themselves" class="headerlink" title="Now the frameworks themselves"></a>Now the frameworks themselves</h2><p>Consider such auxiliary tools for server development on JS, like:</p>
@@ -285,22 +384,47 @@
 <h5 id="Pluses"><a href="#Pluses" class="headerlink" title="Pluses:"></a>Pluses:</h5><p>1) Powerful and easy to use<br>2) Used by many large companies<br>-&gt;<a href="https://socket.io/" target="_blank" rel="noopener">Offisial site</a><br>-&gt;<a href="https://habrahabr.ru/sandbox/90655/" target="_blank" rel="noopener">Using the Socket library</a><br>-&gt;<a href="https://nodeguide.ru/doc/modules-you-should-know/socketio/" target="_blank" rel="noopener">One more example</a></p>
 <h3 id="Conclusion"><a href="#Conclusion" class="headerlink" title="Conclusion"></a>Conclusion</h3><p>Actually, on this we examined several frameworks for server development on JS. For a more detailed dive, you need to use links to official sites.</p>
 
-      </div>
-  </article>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://kir9819.github.io/Docs/2018/02/09/[en]frameworks_node/" data-id="cjdhmmatn0004b08d2klnfcen" class="article-share-link">Поделиться</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/Docs/tags/Node/">Node</a></li></ul>
 
-  <article class="post">
-      
-        
-          <h1><a href="/Docs/2018/02/09/[en]node_express_postgresql/">Инструкция по созданию серверного приложения на nodejs + express + postgresql</a></h1>
-        
-      
-      <div class="post-content ">
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-[en]node_express_postgresql" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/Docs/2018/02/09/[en]node_express_postgresql/" class="article-date">
+  <time datetime="2018-02-09T18:54:28.000Z" itemprop="datePublished">2018-02-09</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/Docs/categories/EN/">EN</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
         
   
+    <h1 itemprop="name">
+      <a class="article-title" href="/Docs/2018/02/09/[en]node_express_postgresql/">Инструкция по созданию серверного приложения на nodejs + express + postgresql</a>
+    </h1>
+  
 
-
-
-
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
         <h1 id="Creating-simple-aplication-using-Node-js-Express-and-PostgreSQL"><a href="#Creating-simple-aplication-using-Node-js-Express-and-PostgreSQL" class="headerlink" title="Creating simple aplication using Node.js, Express and PostgreSQL."></a>Creating simple aplication using Node.js, Express and PostgreSQL.</h1><h3 id="Installation-Node-js"><a href="#Installation-Node-js" class="headerlink" title="Installation Node.js"></a>Installation Node.js</h3><p><strong>Windows:</strong></p>
 <p>In order to start, go to the download page Node.js (<a href="https://nodejs.org/en/download/" target="_blank" rel="noopener">https://nodejs.org/en/download/</a>). Select the installer that you want to download and install.</p>
 <p>After we run the installer and complete the installation step-by-step.</p>
@@ -363,22 +487,47 @@
 <p><strong>Express:</strong><br>    <a href="http://expressjs.com/ru/" target="_blank" rel="noopener">http://expressjs.com/ru/</a></p>
 <p><strong>NPM:</strong><br>    <a href="https://www.npmjs.com/" target="_blank" rel="noopener">https://www.npmjs.com/</a></p>
 
-      </div>
-  </article>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://kir9819.github.io/Docs/2018/02/09/[en]node_express_postgresql/" data-id="cjdhmmatq0005b08dxmvknika" class="article-share-link">Поделиться</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/Docs/tags/Express/">Express</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/Docs/tags/Node/">Node</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/Docs/tags/PostgreSQL/">PostgreSQL</a></li></ul>
 
-  <article class="post">
-      
-        
-          <h1><a href="/Docs/2018/02/09/[en]node_koa_mongo/">Инструкция по созданию серверного приложения на nodejs + koa + mongoDB</a></h1>
-        
-      
-      <div class="post-content ">
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-[en]node_koa_mongo" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/Docs/2018/02/09/[en]node_koa_mongo/" class="article-date">
+  <time datetime="2018-02-09T18:54:28.000Z" itemprop="datePublished">2018-02-09</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/Docs/categories/EN/">EN</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
         
   
+    <h1 itemprop="name">
+      <a class="article-title" href="/Docs/2018/02/09/[en]node_koa_mongo/">Инструкция по созданию серверного приложения на nodejs + koa + mongoDB</a>
+    </h1>
+  
 
-
-
-
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
         <h1 id="Simple-application-w-Node-js-Koa-PostgreSQL"><a href="#Simple-application-w-Node-js-Koa-PostgreSQL" class="headerlink" title="Simple application w/ Node.js + Koa + PostgreSQL"></a>Simple application w/ Node.js + Koa + PostgreSQL</h1><h2 id="Koa"><a href="#Koa" class="headerlink" title="Koa"></a>Koa</h2><p>From Koa introduction:</p>
 <blockquote>
 <p>Koa is a new web framework designed by the team behind Express, which aims to be a smaller, more expressive, and more robust foundation for web applications and APIs. Through leveraging generators Koa allows you to ditch callbacks and greatly increase error-handling. Koa does not bundle any middleware within core, and provides an elegant suite of methods that make writing servers fast and enjoyable.</p>
@@ -430,22 +579,47 @@
 <li><a href="https://github.com/sindresorhus/awesome-nodejs" target="_blank" rel="noopener">Awesome Node.js</a></li>
 </ul>
 
-      </div>
-  </article>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://kir9819.github.io/Docs/2018/02/09/[en]node_koa_mongo/" data-id="cjdhmmatt0007b08d830w0cpm" class="article-share-link">Поделиться</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/Docs/tags/Koa/">Koa</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/Docs/tags/MongoDB/">MongoDB</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/Docs/tags/Node/">Node</a></li></ul>
 
-  <article class="post">
-      
-        
-          <h1><a href="/Docs/2018/02/09/[en]node_koa/">Инструкция по созданию серверного приложения на nodejs + koa</a></h1>
-        
-      
-      <div class="post-content ">
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-[en]node_koa" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/Docs/2018/02/09/[en]node_koa/" class="article-date">
+  <time datetime="2018-02-09T18:54:28.000Z" itemprop="datePublished">2018-02-09</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/Docs/categories/EN/">EN</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
         
   
+    <h1 itemprop="name">
+      <a class="article-title" href="/Docs/2018/02/09/[en]node_koa/">Инструкция по созданию серверного приложения на nodejs + koa</a>
+    </h1>
+  
 
-
-
-
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
         <h1 id="Simple-application-w-Node-js-Koa"><a href="#Simple-application-w-Node-js-Koa" class="headerlink" title="Simple application w/ Node.js + Koa"></a>Simple application w/ Node.js + Koa</h1><p>Koa is a new web framework designed by the team behind Express, which aims to be a smaller, more expressive, and more robust foundation for web applications and APIs.<br>Through leveraging generators Koa allows you to ditch callbacks and greatly increase error-handling. Koa does not bundle any middleware within core, and provides an elegant suite of methods that make writing servers fast and enjoyable.  </p>
 <p>Let’s create a simple Koa application, and review some useful middlewares for it.</p>
 <h3 id="Requirements"><a href="#Requirements" class="headerlink" title="Requirements"></a>Requirements</h3><p>Koa requires Node <code>7.6.0</code> or higher for <code>async/await</code> syntax.<br>You can use older Node versions with Babel (see more about it at <a href="http://koajs.com/" target="_blank" rel="noopener">Koa installation section</a>).  </p>
@@ -508,22 +682,47 @@
 <li><a href="https://github.com/ellerbrock/awesome-koa" target="_blank" rel="noopener">Awesome Koa</a> - awesome list for Koa.</li>
 </ul>
 
-      </div>
-  </article>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://kir9819.github.io/Docs/2018/02/09/[en]node_koa/" data-id="cjdhmmau4000bb08dhh6y587j" class="article-share-link">Поделиться</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/Docs/tags/Koa/">Koa</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/Docs/tags/Node/">Node</a></li></ul>
 
-  <article class="post">
-      
-        
-          <h1><a href="/Docs/2018/02/09/[en]Node_express_mongoDb/">Инструкция по созданию серверного приложения на nodejs + express + mongodb</a></h1>
-        
-      
-      <div class="post-content ">
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-[en]Node_express_mongoDb" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/Docs/2018/02/09/[en]Node_express_mongoDb/" class="article-date">
+  <time datetime="2018-02-09T18:54:28.000Z" itemprop="datePublished">2018-02-09</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/Docs/categories/EN/">EN</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
         
   
+    <h1 itemprop="name">
+      <a class="article-title" href="/Docs/2018/02/09/[en]Node_express_mongoDb/">Инструкция по созданию серверного приложения на nodejs + express + mongodb</a>
+    </h1>
+  
 
-
-
-
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
         <h1 id="Instruction-for-creating-a-server-app-on-Nodejs-Express-and-MongoDB"><a href="#Instruction-for-creating-a-server-app-on-Nodejs-Express-and-MongoDB" class="headerlink" title="Instruction for creating a server app on Nodejs, Express and MongoDB"></a>Instruction for creating a server app on Nodejs, Express and MongoDB</h1><hr>
 <p>Based on simple example of app in which we can create, read, update and delete simple text documents</p>
 <h3 id="Component-installation"><a href="#Component-installation" class="headerlink" title="Component installation"></a>Component installation</h3><p>The official site of nodejs (<a href="https://nodejs.org/" target="_blank" rel="noopener">https://nodejs.org/</a>) has detailed installation instructions</p>
@@ -571,22 +770,47 @@
 <li><a href="http://coenraets.org/blog/2012/10/creating-a-rest-api-using-node-js-express-and-mongodb/" target="_blank" rel="noopener">http://coenraets.org/blog/2012/10/creating-a-rest-api-using-node-js-express-and-mongodb/</a></li>
 </ol>
 
-      </div>
-  </article>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://kir9819.github.io/Docs/2018/02/09/[en]Node_express_mongoDb/" data-id="cjdhmmat50000b08ddc1aeh50" class="article-share-link">Поделиться</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/Docs/tags/Express/">Express</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/Docs/tags/MongoDB/">MongoDB</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/Docs/tags/Node/">Node</a></li></ul>
 
-  <article class="post">
-      
-        
-          <h1><a href="/Docs/2018/02/09/[en]node_koa_postgre/">Инструкция по созданию серверного приложения на nodejs + koa + postgresql</a></h1>
-        
-      
-      <div class="post-content ">
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-[en]node_koa_postgre" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/Docs/2018/02/09/[en]node_koa_postgre/" class="article-date">
+  <time datetime="2018-02-09T18:54:28.000Z" itemprop="datePublished">2018-02-09</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/Docs/categories/EN/">EN</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
         
   
+    <h1 itemprop="name">
+      <a class="article-title" href="/Docs/2018/02/09/[en]node_koa_postgre/">Инструкция по созданию серверного приложения на nodejs + koa + postgresql</a>
+    </h1>
+  
 
-
-
-
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
         <h1 id="Simple-application-w-Node-js-Koa-PostgreSQL"><a href="#Simple-application-w-Node-js-Koa-PostgreSQL" class="headerlink" title="Simple application w/ Node.js + Koa + PostgreSQL"></a>Simple application w/ Node.js + Koa + PostgreSQL</h1><p>From Koa introduction:</p>
 <blockquote>
 <p>Koa is a new web framework designed by the team behind Express, which aims to be a smaller, more expressive, and more robust foundation for web applications and APIs. Through leveraging generators Koa allows you to ditch callbacks and greatly increase error-handling. Koa does not bundle any middleware within core, and provides an elegant suite of methods that make writing servers fast and enjoyable.</p>
@@ -653,22 +877,47 @@
 <li><a href="https://github.com/sindresorhus/awesome-nodejs" target="_blank" rel="noopener">Awesome Node.js</a></li>
 </ul>
 
-      </div>
-  </article>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://kir9819.github.io/Docs/2018/02/09/[en]node_koa_postgre/" data-id="cjdhmmaub000ib08dwmmp7160" class="article-share-link">Поделиться</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/Docs/tags/Koa/">Koa</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/Docs/tags/Node/">Node</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/Docs/tags/PostgreSQL/">PostgreSQL</a></li></ul>
 
-  <article class="post">
-      
-        
-          <h1><a href="/Docs/2018/02/09/[ru]frameworks_node/">Обзор фреймворков для создания серверного приложения на nodejs</a></h1>
-        
-      
-      <div class="post-content ">
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-[ru]frameworks_node" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/Docs/2018/02/09/[ru]frameworks_node/" class="article-date">
+  <time datetime="2018-02-09T18:54:28.000Z" itemprop="datePublished">2018-02-09</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/Docs/categories/RU/">RU</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
         
   
+    <h1 itemprop="name">
+      <a class="article-title" href="/Docs/2018/02/09/[ru]frameworks_node/">Обзор фреймворков для создания серверного приложения на nodejs</a>
+    </h1>
+  
 
-
-
-
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
         <h1 id="Обзор-фреймворков-для-создания-серверного-приложения-на-nodejs"><a href="#Обзор-фреймворков-для-создания-серверного-приложения-на-nodejs" class="headerlink" title="Обзор фреймворков для создания серверного приложения на nodejs"></a>Обзор фреймворков для создания серверного приложения на nodejs</h1><h3 id="Что-такое-Node-js"><a href="#Что-такое-Node-js" class="headerlink" title="Что такое Node.js?"></a>Что такое Node.js?</h3><p>Node или Node.js — серверная реализация языка программирования JavaScript, основанная на движке V8. Предназначена для создания масштабируемых распределённых сетевых приложений, таких как веб-сервер. Node.js по целям использования сходен с каркасами Twisted на языке Python и EventMachine на Ruby. В отличие от большинства программ JavaScript, этот каркас исполняется не в браузере клиента, а на стороне сервера.</p>
 <h3 id="Что-такое-framework"><a href="#Что-такое-framework" class="headerlink" title="Что такое framework?"></a>Что такое framework?</h3><p>framework — это набор инструментов, библиотек, хорошего кода, который поможет превратить рутинные задачи в модули, которые можно использовать неоднократно. Задача framework’а — позволить дизайнеру или разработчику сфокусироваться на задачах, являющимися уникальными в рамках данного проекта. Иначе говоря, не изобретать колесо раз за разом. </p>
 <h2 id="Теперь-непосредственно-сами-framework’и"><a href="#Теперь-непосредственно-сами-framework’и" class="headerlink" title="Теперь непосредственно сами framework’и"></a>Теперь непосредственно сами framework’и</h2><p>Рассмотрим такие вспомогательные средства для серверной разработки на JS, как:</p>
@@ -700,29 +949,135 @@
 <h5 id="Плюсы"><a href="#Плюсы" class="headerlink" title="Плюсы:"></a>Плюсы:</h5><p>1)Мощный и простой в использовании<br>2)Используется многими крупными компаниями<br>-&gt;<a href="https://socket.io/" target="_blank" rel="noopener">Официальный сайт</a><br>-&gt;<a href="https://habrahabr.ru/sandbox/90655/" target="_blank" rel="noopener">Использование библиотеки Socket</a><br>-&gt;<a href="https://nodeguide.ru/doc/modules-you-should-know/socketio/" target="_blank" rel="noopener">Еще один пример</a></p>
 <h3 id="Заключение"><a href="#Заключение" class="headerlink" title="Заключение"></a>Заключение</h3><p>Собственно, на этом мы расмотрели несколько framework’ов для серверной разработки на JS. Для более детального погружения необходимо воспользоваться ссылками на официальные сайты. </p>
 
-      </div>
-  </article>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://kir9819.github.io/Docs/2018/02/09/[ru]frameworks_node/" data-id="cjdhmmaud000lb08dwlf94skq" class="article-share-link">Поделиться</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/Docs/tags/Node/">Node</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
 
 
-  <nav class="pagination clearfix">
-  <ul>
+  
+
+
+  <nav id="page-nav">
     
-    <span class="page-number current">1</span><a class="page-number" href="/Docs/page/2/">2</a><a class="extend next" rel="next" href="/Docs/page/2/"><i class="fa fa-chevron-circle-right" aria-hidden="true"></i></a>
-  </ul>
-</nav>
-
+    <span class="page-number current">1</span><a class="page-number" href="/Docs/page/2/">2</a><a class="extend next" rel="next" href="/Docs/page/2/">Вперед &raquo;</a>
+  </nav>
 
 </section>
-    <footer id="footer" role="contentinfo">
-    <div>&copy; 2018 <a href="/">Existend Docs</a>.
-    Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>. Designed by <a href="http://rainylog.com" target="_blank">Rainy.</a>
-	</div>
-</footer><!-- end #footer -->
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Категории</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/Docs/categories/EN/">EN</a></li><li class="category-list-item"><a class="category-list-link" href="/Docs/categories/RU/">RU</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Метки</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/Docs/tags/Express/">Express</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Docs/tags/Koa/">Koa</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Docs/tags/MongoDB/">MongoDB</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Docs/tags/Node/">Node</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Docs/tags/PostgreSQL/">PostgreSQL</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Облако меток</h3>
+    <div class="widget tagcloud">
+      <a href="/Docs/tags/Express/" style="font-size: 13.33px;">Express</a> <a href="/Docs/tags/Koa/" style="font-size: 16.67px;">Koa</a> <a href="/Docs/tags/MongoDB/" style="font-size: 10px;">MongoDB</a> <a href="/Docs/tags/Node/" style="font-size: 20px;">Node</a> <a href="/Docs/tags/PostgreSQL/" style="font-size: 10px;">PostgreSQL</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Архив</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/Docs/archives/2018/02/">февраль 2018</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Недавние записи</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/Docs/2018/02/09/[ru]Node_express_mongoDb/">Инструкция по созданию серверного приложения на nodejs + express + mongoDB</a>
+          </li>
+        
+          <li>
+            <a href="/Docs/2018/02/09/[ru]node_koa_postrge/">Инструкция по созданию серверного приложения на nodejs + koa + postgresql</a>
+          </li>
+        
+          <li>
+            <a href="/Docs/2018/02/09/[en]node_express/">Инструкция по созданию серверного приложения на nodejs + express</a>
+          </li>
+        
+          <li>
+            <a href="/Docs/2018/02/09/[en]frameworks_node/">Обзор фреймворков для создания серверного приложения на nodejs</a>
+          </li>
+        
+          <li>
+            <a href="/Docs/2018/02/09/[en]node_express_postgresql/">Инструкция по созданию серверного приложения на nodejs + express + postgresql</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2018 Kirill Aniskin<br>
+      Создано с помощью <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/Docs/" class="mobile-nav-link">Home</a>
+  
+    <a href="/Docs/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/Docs/fancybox/jquery.fancybox.css">
+  <script src="/Docs/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/Docs/js/script.js"></script>
+
+
 
   </div>
-  <script src="/Docs/lib/fancybox/dist/jquery.fancybox.min.js"></script>
-
-  <script src="/Docs/js/helper.js"></script>
-  <script src="/Docs/js/_third-party/gitment.js"></script>
 </body>
 </html>

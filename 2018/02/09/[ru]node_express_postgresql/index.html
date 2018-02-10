@@ -3,6 +3,8 @@
 <head>
   <meta charset="utf-8">
   
+
+  
   <title>Инструкция по созданию серверного приложения на nodejs + express + postgresql | Existend Docs</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="Создание простого серверного приложения с использованием Node.js, Express and PostgreSQL.Установка Node.jsWindows: Для того чтобы начать, зайдите на страницу загрузки Node.js (https://nodejs.org/en/do">
@@ -19,52 +21,73 @@
 <meta name="twitter:description" content="Создание простого серверного приложения с использованием Node.js, Express and PostgreSQL.Установка Node.jsWindows: Для того чтобы начать, зайдите на страницу загрузки Node.js (https://nodejs.org/en/do">
   
   
+    <link rel="icon" href="/favicon.png">
+  
   
     <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
   
-  <link rel="stylesheet" href="/Docs/lib/font-awesome/css/font-awesome.min.css?v=4.7.0">
-  <link rel="stylesheet" href="/Docs/lib/fancybox/dist/jquery.fancybox.min.css">
-  <link rel="stylesheet" href="/Docs/css/main.css">
-  <script src="/Docs/lib/jquery/dist/jquery.min.js"></script>
-  
-  
-  
-  
+  <link rel="stylesheet" href="/Docs/css/style.css">
 </head>
+
 <body>
-  <div id="wrapper">
-    <header id="header" class="clearfix">
-	<a id="logo" href="/Docs/" title="Existend Docs">Existend Docs</a>
-	
-	<nav id="nav-menu" class="clearfix">
-		<form id="search" method="post" action="./" role="search">
-			<input id="search-input" type="text" name="s" class="inputbox" value="Поиск" onfocus="if (value =='Поиск'){value =''}" onblur="if (value ==''){value='Поиск'}">
-		</form>
-		<ul>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/Docs/" id="logo">Existend Docs</a>
+      </h1>
       
-				
-        <li><a class="main-nav-link" href="/Docs/">Домашняя страница</a></li>
-      
-				
-        <li><a class="main-nav-link" href="/Docs/archives">Архивы</a></li>
-      
-		</ul>
-	</nav>
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/Docs/">Home</a>
+        
+          <a class="main-nav-link" href="/Docs/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+        <a id="nav-search-btn" class="nav-icon" title="Поиск"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://kir9819.github.io/Docs"></form>
+      </div>
+    </div>
+  </div>
 </header>
-    <section id="main" class="clearfix"><article class="post-detail">
-  <h1 class="post-title"><a href="/Docs/">Инструкция по созданию серверного приложения на nodejs + express + postgresql</a></h1>
-  <ul class="post-meta">
-  <li><i class="fa fa-user"></i> Автор Kirill Aniskin</li>
-  <li><i class="fa fa-calendar"></i> Дата февр. 9</li>
-  <li><i class="fa fa-folder"></i> Категории
-  
+      <div class="outer">
+        <section id="main"><article id="post-[ru]node_express_postgresql" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/Docs/2018/02/09/[ru]node_express_postgresql/" class="article-date">
+  <time datetime="2018-02-09T18:54:28.000Z" itemprop="datePublished">2018-02-09</time>
+</a>
+    
+  <div class="article-category">
     <a class="article-category-link" href="/Docs/categories/RU/">RU</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
   
-  </li>
-</ul>
-  <div class="post-content">
+    <h1 class="article-title" itemprop="name">
+      Инструкция по созданию серверного приложения на nodejs + express + postgresql
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
       
-      <h1 id="Создание-простого-серверного-приложения-с-использованием-Node-js-Express-and-PostgreSQL"><a href="#Создание-простого-серверного-приложения-с-использованием-Node-js-Express-and-PostgreSQL" class="headerlink" title="Создание простого серверного приложения с использованием Node.js, Express and PostgreSQL."></a>Создание простого серверного приложения с использованием Node.js, Express and PostgreSQL.</h1><h3 id="Установка-Node-js"><a href="#Установка-Node-js" class="headerlink" title="Установка Node.js"></a>Установка Node.js</h3><p><strong>Windows:</strong></p>
+        <h1 id="Создание-простого-серверного-приложения-с-использованием-Node-js-Express-and-PostgreSQL"><a href="#Создание-простого-серверного-приложения-с-использованием-Node-js-Express-and-PostgreSQL" class="headerlink" title="Создание простого серверного приложения с использованием Node.js, Express and PostgreSQL."></a>Создание простого серверного приложения с использованием Node.js, Express and PostgreSQL.</h1><h3 id="Установка-Node-js"><a href="#Установка-Node-js" class="headerlink" title="Установка Node.js"></a>Установка Node.js</h3><p><strong>Windows:</strong></p>
 <p>Для того чтобы начать, зайдите на страницу загрузки Node.js (<a href="https://nodejs.org/en/download/" target="_blank" rel="noopener">https://nodejs.org/en/download/</a>). Выберите установщик, который вы хотите скачать и установить.</p>
 <p>После запускаем установщик и пошагово завершаем установку.</p>
 <p><strong>CentOS:</strong></p>
@@ -126,31 +149,147 @@
 <p><strong>Express:</strong><br>    <a href="http://expressjs.com/ru/" target="_blank" rel="noopener">http://expressjs.com/ru/</a></p>
 <p><strong>NPM:</strong><br>    <a href="https://www.npmjs.com/" target="_blank" rel="noopener">https://www.npmjs.com/</a></p>
 
-  </div>
-  
-    <div class="tags">
-    <span><i class="fa fa-tags"></i> Теги</span>
-      
-        <ul class="post-tag-list"><li class="post-tag-list-item"><a class="post-tag-list-link" href="/Docs/tags/Express/">Express</a></li><li class="post-tag-list-item"><a class="post-tag-list-link" href="/Docs/tags/Node/">Node</a></li><li class="post-tag-list-item"><a class="post-tag-list-link" href="/Docs/tags/PostgreSQL/">PostgreSQL</a></li></ul>
       
     </div>
-  
+    <footer class="article-footer">
+      <a data-url="https://kir9819.github.io/Docs/2018/02/09/[ru]node_express_postgresql/" data-id="cjdhmmaug000pb08dv0d9dwyf" class="article-share-link">Поделиться</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/Docs/tags/Express/">Express</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/Docs/tags/Node/">Node</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/Docs/tags/PostgreSQL/">PostgreSQL</a></li></ul>
 
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/Docs/2018/02/09/[ru]frameworks_node/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Следующий</strong>
+      <div class="article-nav-title">
+        
+          Обзор фреймворков для создания серверного приложения на nodejs
+        
+      </div>
+    </a>
+  
+  
+    <a href="/Docs/2018/02/09/[ru]node_express/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Предыдущий</strong>
+      <div class="article-nav-title">Инструкция по созданию серверного приложения на nodejs + express</div>
+    </a>
+  
+</nav>
+
+  
 </article>
 
-<!-- Comments -->
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Категории</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/Docs/categories/EN/">EN</a></li><li class="category-list-item"><a class="category-list-link" href="/Docs/categories/RU/">RU</a></li></ul>
+    </div>
+  </div>
 
-<!-- End Comments --></section>
-    <footer id="footer" role="contentinfo">
-    <div>&copy; 2018 <a href="/">Existend Docs</a>.
-    Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>. Designed by <a href="http://rainylog.com" target="_blank">Rainy.</a>
-	</div>
-</footer><!-- end #footer -->
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Метки</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/Docs/tags/Express/">Express</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Docs/tags/Koa/">Koa</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Docs/tags/MongoDB/">MongoDB</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Docs/tags/Node/">Node</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Docs/tags/PostgreSQL/">PostgreSQL</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Облако меток</h3>
+    <div class="widget tagcloud">
+      <a href="/Docs/tags/Express/" style="font-size: 13.33px;">Express</a> <a href="/Docs/tags/Koa/" style="font-size: 16.67px;">Koa</a> <a href="/Docs/tags/MongoDB/" style="font-size: 10px;">MongoDB</a> <a href="/Docs/tags/Node/" style="font-size: 20px;">Node</a> <a href="/Docs/tags/PostgreSQL/" style="font-size: 10px;">PostgreSQL</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Архив</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/Docs/archives/2018/02/">февраль 2018</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Недавние записи</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/Docs/2018/02/09/[ru]Node_express_mongoDb/">Инструкция по созданию серверного приложения на nodejs + express + mongoDB</a>
+          </li>
+        
+          <li>
+            <a href="/Docs/2018/02/09/[ru]node_koa_postrge/">Инструкция по созданию серверного приложения на nodejs + koa + postgresql</a>
+          </li>
+        
+          <li>
+            <a href="/Docs/2018/02/09/[en]node_express/">Инструкция по созданию серверного приложения на nodejs + express</a>
+          </li>
+        
+          <li>
+            <a href="/Docs/2018/02/09/[en]frameworks_node/">Обзор фреймворков для создания серверного приложения на nodejs</a>
+          </li>
+        
+          <li>
+            <a href="/Docs/2018/02/09/[en]node_express_postgresql/">Инструкция по созданию серверного приложения на nodejs + express + postgresql</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2018 Kirill Aniskin<br>
+      Создано с помощью <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/Docs/" class="mobile-nav-link">Home</a>
+  
+    <a href="/Docs/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/Docs/fancybox/jquery.fancybox.css">
+  <script src="/Docs/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/Docs/js/script.js"></script>
+
+
 
   </div>
-  <script src="/Docs/lib/fancybox/dist/jquery.fancybox.min.js"></script>
-
-  <script src="/Docs/js/helper.js"></script>
-  <script src="/Docs/js/_third-party/gitment.js"></script>
 </body>
 </html>
