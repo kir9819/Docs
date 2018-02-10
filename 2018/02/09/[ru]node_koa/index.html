@@ -7,18 +7,18 @@
   
   <title>Инструкция по созданию серверного приложения на nodejs + koa | Existend Docs</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Серверное приложение Node.js + KoaKoa - микрофреймфорк, разработанный командой разработчиков фреймворка Express, и призванный использовать самые последние стандарты языка JavaScript.Koa “предлагает” а">
+  <meta name="description" content="Koa - микрофреймфорк, разработанный командой разработчиков фреймворка Express, и призванный использовать самые последние стандарты языка JavaScript.Koa “предлагает” активно использовать самые последн">
 <meta name="keywords" content="Node,Koa">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Инструкция по созданию серверного приложения на nodejs + koa">
 <meta property="og:url" content="https://kir9819.github.io/Docs/2018/02/09/[ru]node_koa/index.html">
 <meta property="og:site_name" content="Existend Docs">
-<meta property="og:description" content="Серверное приложение Node.js + KoaKoa - микрофреймфорк, разработанный командой разработчиков фреймворка Express, и призванный использовать самые последние стандарты языка JavaScript.Koa “предлагает” а">
+<meta property="og:description" content="Koa - микрофреймфорк, разработанный командой разработчиков фреймворка Express, и призванный использовать самые последние стандарты языка JavaScript.Koa “предлагает” активно использовать самые последн">
 <meta property="og:locale" content="ru">
-<meta property="og:updated_time" content="2018-02-10T17:12:30.455Z">
+<meta property="og:updated_time" content="2018-02-10T18:09:14.279Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Инструкция по созданию серверного приложения на nodejs + koa">
-<meta name="twitter:description" content="Серверное приложение Node.js + KoaKoa - микрофреймфорк, разработанный командой разработчиков фреймворка Express, и призванный использовать самые последние стандарты языка JavaScript.Koa “предлагает” а">
+<meta name="twitter:description" content="Koa - микрофреймфорк, разработанный командой разработчиков фреймворка Express, и призванный использовать самые последние стандарты языка JavaScript.Koa “предлагает” активно использовать самые последн">
   
   
     <link rel="icon" href="/favicon.png">
@@ -87,7 +87,8 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="Серверное-приложение-Node-js-Koa"><a href="#Серверное-приложение-Node-js-Koa" class="headerlink" title="Серверное приложение Node.js + Koa"></a>Серверное приложение Node.js + Koa</h1><p>Koa - микрофреймфорк, разработанный командой разработчиков фреймворка Express, и призванный использовать самые последние стандарты языка JavaScript.<br>Koa “предлагает” активно использовать самые последние стандарты в языке, включая синтаксис <code>async/await</code>, который позволяет избавиться от ужасно нечитаемого “callback hell” и является хорошей альтернативой построения цепочек Promise. Углубляться в синтаксис здесь не будем, это не тема статьи.<br>Сам Koa, являясь микрофреймворком, из коробки содержит только middleware систему, в нем даже нет маршрутизации. Все это можно получить, подключив необходимую функциональность в middleware chain.</p>
+        <!-- # Серверное приложение Node.js + Koa -->
+<p>Koa - микрофреймфорк, разработанный командой разработчиков фреймворка Express, и призванный использовать самые последние стандарты языка JavaScript.<br>Koa “предлагает” активно использовать самые последние стандарты в языке, включая синтаксис <code>async/await</code>, который позволяет избавиться от ужасно нечитаемого “callback hell” и является хорошей альтернативой построения цепочек Promise. Углубляться в синтаксис здесь не будем, это не тема статьи.<br>Сам Koa, являясь микрофреймворком, из коробки содержит только middleware систему, в нем даже нет маршрутизации. Все это можно получить, подключив необходимую функциональность в middleware chain.</p>
 <p>В данной статье рассмотрим создание самого приложения Koa, и рассмотрим популярные навесы на него, для расширения функциональности.</p>
 <h3 id="Требования"><a href="#Требования" class="headerlink" title="Требования"></a>Требования</h3><p>Koa требует версию Node не меньше <code>7.6.0</code>.<br>Использовать более старые версии можно, если подключить Babel, но тогда немного теряется посыл самого Koa (см. выше).<br>Т.к. мы собираемся использовать достаточно новые фичи языка, то лучше не скупиться, и ставить последнюю стабильную версию Node.</p>
 <h3 id="Подготовка-среды"><a href="#Подготовка-среды" class="headerlink" title="Подготовка среды"></a>Подготовка среды</h3><h4 id="Про-Node-js"><a href="#Про-Node-js" class="headerlink" title="Про Node.js"></a>Про Node.js</h4><p>Если Node не установлен, то вам необходимо <a href="https://nodejs.org/en/download/" target="_blank" rel="noopener">сюда</a>. Если же у вас еще и Linux или macOS, можно установить через менеджер пакетов - <a href="https://nodejs.org/en/download/package-manager/" target="_blank" rel="noopener">здесь</a> сказано, как.<br>Чтобы проверить, что с Node все в порядке, можно набрать команду:</p>
@@ -241,15 +242,15 @@
           </li>
         
           <li>
-            <a href="/Docs/2018/02/09/[en]node_express/">Инструкция по созданию серверного приложения на nodejs + express</a>
+            <a href="/Docs/2018/02/09/[en]node_express/">Instructions for creating a server application on nodejs + express</a>
           </li>
         
           <li>
-            <a href="/Docs/2018/02/09/[en]frameworks_node/">Обзор фреймворков для создания серверного приложения на nodejs</a>
+            <a href="/Docs/2018/02/09/[en]frameworks_node/">Review of frameworks for creating a server application on nodejs</a>
           </li>
         
           <li>
-            <a href="/Docs/2018/02/09/[en]node_express_postgresql/">Инструкция по созданию серверного приложения на nodejs + express + postgresql</a>
+            <a href="/Docs/2018/02/09/[en]node_express_postgresql/">Creating simple aplication using Node.js, Express and PostgreSQL.</a>
           </li>
         
       </ul>

@@ -84,7 +84,8 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="Инструкция-по-созданию-серверного-приложения-на-nodejs-express-mongodb"><a href="#Инструкция-по-созданию-серверного-приложения-на-nodejs-express-mongodb" class="headerlink" title="Инструкция по созданию серверного приложения на nodejs + express + mongodb"></a>Инструкция по созданию серверного приложения на nodejs + express + mongodb</h1><hr>
+        <!-- # Инструкция по созданию серверного приложения на nodejs + express + mongodb -->
+<hr>
 <p>Для понимания подойдет простейший пример, в котором мы сможем создавать, читать, обновлять и удалять простые текстовые документы</p>
 <h3 id="Установка-компонентов"><a href="#Установка-компонентов" class="headerlink" title="Установка компонентов"></a>Установка компонентов</h3><p>На официальном сайте node (<a href="https://nodejs.org/" target="_blank" rel="noopener">https://nodejs.org/</a>) есть подробные инструкции по установке<br>Примеры для самого распространенного, если не хочется переходить и искать</p>
 <p>Для centos:</p>
@@ -172,7 +173,8 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="Серверное-приложение-Node-js-Koa-PostgreSQL"><a href="#Серверное-приложение-Node-js-Koa-PostgreSQL" class="headerlink" title="Серверное приложение Node.js + Koa + PostgreSQL"></a>Серверное приложение Node.js + Koa + PostgreSQL</h1><p>Koa - микрофреймфорк, разработанный командой разработчиков фреймворка Express, и призванный использовать самые последние стандарты языка JavaScript.<br>Koa “предлагает” активно использовать синтаксис <code>async/await</code>, который позволяет избавиться от ужасно нечитаемого “callback hell” и является более лучшей альтернативой Promise. Углубляться в синтаксис здесь не будем, это не тема статьи.<br>Сам Koa, являясь микрофреймворком, из коробки содержит только middleware систему, в нем даже нет маршрутизации. Все это можно получить, подключив необходимую функциональность в middleware chain.</p>
+        <!-- # Серверное приложение Node.js + Koa + PostgreSQL -->
+<p>Koa - микрофреймфорк, разработанный командой разработчиков фреймворка Express, и призванный использовать самые последние стандарты языка JavaScript.<br>Koa “предлагает” активно использовать синтаксис <code>async/await</code>, который позволяет избавиться от ужасно нечитаемого “callback hell” и является более лучшей альтернативой Promise. Углубляться в синтаксис здесь не будем, это не тема статьи.<br>Сам Koa, являясь микрофреймворком, из коробки содержит только middleware систему, в нем даже нет маршрутизации. Все это можно получить, подключив необходимую функциональность в middleware chain.</p>
 <h3 id="Требования"><a href="#Требования" class="headerlink" title="Требования"></a>Требования</h3><p>Koa требует версию Node не меньше <code>7.6.0</code>.<br>Использовать более старые версии можно, если подключить Babel, но тогда немного теряется посыл самого Koa (см. выше).<br>Версия PostgreSQL нас не интересует, поставим самую последнюю.</p>
 <h3 id="Подготовка-среды"><a href="#Подготовка-среды" class="headerlink" title="Подготовка среды"></a>Подготовка среды</h3><h4 id="Про-Node-js"><a href="#Про-Node-js" class="headerlink" title="Про Node.js"></a>Про Node.js</h4><p>Если Node не установлен, то вам необходимо <a href="https://nodejs.org/en/download/" target="_blank" rel="noopener">сюда</a>. Если же у вас еще и Linux или macOS, можно установить через менеджер пакетов - <a href="https://nodejs.org/en/download/package-manager/" target="_blank" rel="noopener">здесь</a> сказано, как.<br>Чтобы проверить, что с Node все в порядке, можно набрать команду:</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ node --version</span><br></pre></td></tr></table></figure>
@@ -268,7 +270,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/Docs/2018/02/09/[en]node_express/">Инструкция по созданию серверного приложения на nodejs + express</a>
+      <a class="article-title" href="/Docs/2018/02/09/[en]node_express/">Instructions for creating a server application on nodejs + express</a>
     </h1>
   
 
@@ -276,7 +278,8 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="Instructions-for-creating-a-server-application-on-nodejs-express"><a href="#Instructions-for-creating-a-server-application-on-nodejs-express" class="headerlink" title="Instructions for creating a server application on nodejs + express"></a>Instructions for creating a server application on nodejs + express</h1><h5 id="Attention"><a href="#Attention" class="headerlink" title="Attention"></a>Attention</h5><p>If you don’t have knowledge of JavaScript, you need to do something about it. For example, read the online tutorial: <a href="https://learn.javascript.ru/" target="_blank" rel="noopener">https://learn.javascript.ru/</a></p>
+        <!-- # Instructions for creating a server application on nodejs + express -->
+<h5 id="Attention"><a href="#Attention" class="headerlink" title="Attention"></a>Attention</h5><p>If you don’t have knowledge of JavaScript, you need to do something about it. For example, read the online tutorial: <a href="https://learn.javascript.ru/" target="_blank" rel="noopener">https://learn.javascript.ru/</a></p>
 <h3 id="Node-js-what-is-it"><a href="#Node-js-what-is-it" class="headerlink" title="Node.js what is it?"></a>Node.js what is it?</h3><p><code>Node.js</code> is a JavaScript runtime built on Chrome’s V8 JavaScript engine. Node.js uses an event-driven, non-blocking I/O model that makes it light and efficient. Node.js’ package ecosystem, <code>npm</code>, is the largest ecosystem of open source libraries in the world.</p>
 <h3 id="Installation"><a href="#Installation" class="headerlink" title="Installation"></a>Installation</h3><p>Go to the official site <a href="https://nodejs.org/en/" target="_blank" rel="noopener">https://nodejs.org/en/</a> to download it. On the main page we see two possible options for download: the latest version of NodeJS and the LTS version.</p>
 <p>Download, install. There you can find instructions for setting up:</p>
@@ -345,7 +348,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/Docs/2018/02/09/[en]frameworks_node/">Обзор фреймворков для создания серверного приложения на nodejs</a>
+      <a class="article-title" href="/Docs/2018/02/09/[en]frameworks_node/">Review of frameworks for creating a server application on nodejs</a>
     </h1>
   
 
@@ -353,7 +356,8 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="Review-of-frameworks-for-creating-a-server-application-on-nodejs"><a href="#Review-of-frameworks-for-creating-a-server-application-on-nodejs" class="headerlink" title="Review of frameworks for creating a server application on nodejs"></a>Review of frameworks for creating a server application on nodejs</h1><h3 id="What-is-Node-js"><a href="#What-is-Node-js" class="headerlink" title="What is Node.js?"></a>What is Node.js?</h3><p>Node or Node.js is a server implementation of the JavaScript programming language, based on the V8 engine. It is designed to create scalable distributed network applications, such as a web server. Node.js for purposes of use is similar to Twisted frameworks in Python and EventMachine in Ruby. Unlike most JavaScript programs, this framework is executed not on the client’s browser, but on the server side.</p>
+        <!-- # Review of frameworks for creating a server application on nodejs -->
+<h3 id="What-is-Node-js"><a href="#What-is-Node-js" class="headerlink" title="What is Node.js?"></a>What is Node.js?</h3><p>Node or Node.js is a server implementation of the JavaScript programming language, based on the V8 engine. It is designed to create scalable distributed network applications, such as a web server. Node.js for purposes of use is similar to Twisted frameworks in Python and EventMachine in Ruby. Unlike most JavaScript programs, this framework is executed not on the client’s browser, but on the server side.</p>
 <h3 id="What-is-framework"><a href="#What-is-framework" class="headerlink" title="What is framework?"></a>What is framework?</h3><p>framework is a set of tools, libraries, good code that will help turn routine tasks into modules that can be used repeatedly. The task of the framework is to allow the designer or developer to focus on tasks that are unique within this project. In other words, do not reinvent the wheel time after time.</p>
 <h2 id="Now-the-frameworks-themselves"><a href="#Now-the-frameworks-themselves" class="headerlink" title="Now the frameworks themselves"></a>Now the frameworks themselves</h2><p>Consider such auxiliary tools for server development on JS, like:</p>
 <ul>
@@ -417,7 +421,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/Docs/2018/02/09/[en]node_express_postgresql/">Инструкция по созданию серверного приложения на nodejs + express + postgresql</a>
+      <a class="article-title" href="/Docs/2018/02/09/[en]node_express_postgresql/">Creating simple aplication using Node.js, Express and PostgreSQL.</a>
     </h1>
   
 
@@ -425,7 +429,8 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="Creating-simple-aplication-using-Node-js-Express-and-PostgreSQL"><a href="#Creating-simple-aplication-using-Node-js-Express-and-PostgreSQL" class="headerlink" title="Creating simple aplication using Node.js, Express and PostgreSQL."></a>Creating simple aplication using Node.js, Express and PostgreSQL.</h1><h3 id="Installation-Node-js"><a href="#Installation-Node-js" class="headerlink" title="Installation Node.js"></a>Installation Node.js</h3><p><strong>Windows:</strong></p>
+        <!-- # Creating simple aplication using Node.js, Express and PostgreSQL. -->
+<h3 id="Installation-Node-js"><a href="#Installation-Node-js" class="headerlink" title="Installation Node.js"></a>Installation Node.js</h3><p><strong>Windows:</strong></p>
 <p>In order to start, go to the download page Node.js (<a href="https://nodejs.org/en/download/" target="_blank" rel="noopener">https://nodejs.org/en/download/</a>). Select the installer that you want to download and install.</p>
 <p>After we run the installer and complete the installation step-by-step.</p>
 <p><strong>CentOS:</strong></p>
@@ -520,7 +525,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/Docs/2018/02/09/[en]node_koa_mongo/">Инструкция по созданию серверного приложения на nodejs + koa + mongoDB</a>
+      <a class="article-title" href="/Docs/2018/02/09/[en]node_koa_mongo/">Simple application Node.js + Koa + MongoDB</a>
     </h1>
   
 
@@ -528,7 +533,8 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="Simple-application-w-Node-js-Koa-PostgreSQL"><a href="#Simple-application-w-Node-js-Koa-PostgreSQL" class="headerlink" title="Simple application w/ Node.js + Koa + PostgreSQL"></a>Simple application w/ Node.js + Koa + PostgreSQL</h1><h2 id="Koa"><a href="#Koa" class="headerlink" title="Koa"></a>Koa</h2><p>From Koa introduction:</p>
+        <!-- # Simple application Node.js + Koa + MongoDB -->
+<h2 id="Koa"><a href="#Koa" class="headerlink" title="Koa"></a>Koa</h2><p>From Koa introduction:</p>
 <blockquote>
 <p>Koa is a new web framework designed by the team behind Express, which aims to be a smaller, more expressive, and more robust foundation for web applications and APIs. Through leveraging generators Koa allows you to ditch callbacks and greatly increase error-handling. Koa does not bundle any middleware within core, and provides an elegant suite of methods that make writing servers fast and enjoyable.</p>
 </blockquote>
@@ -612,7 +618,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/Docs/2018/02/09/[en]node_koa/">Инструкция по созданию серверного приложения на nodejs + koa</a>
+      <a class="article-title" href="/Docs/2018/02/09/[en]node_koa/">Simple application Node.js + Koa</a>
     </h1>
   
 
@@ -620,7 +626,8 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="Simple-application-w-Node-js-Koa"><a href="#Simple-application-w-Node-js-Koa" class="headerlink" title="Simple application w/ Node.js + Koa"></a>Simple application w/ Node.js + Koa</h1><p>Koa is a new web framework designed by the team behind Express, which aims to be a smaller, more expressive, and more robust foundation for web applications and APIs.<br>Through leveraging generators Koa allows you to ditch callbacks and greatly increase error-handling. Koa does not bundle any middleware within core, and provides an elegant suite of methods that make writing servers fast and enjoyable.  </p>
+        <!-- # Simple application Node.js + Koa -->
+<p>Koa is a new web framework designed by the team behind Express, which aims to be a smaller, more expressive, and more robust foundation for web applications and APIs.<br>Through leveraging generators Koa allows you to ditch callbacks and greatly increase error-handling. Koa does not bundle any middleware within core, and provides an elegant suite of methods that make writing servers fast and enjoyable.  </p>
 <p>Let’s create a simple Koa application, and review some useful middlewares for it.</p>
 <h3 id="Requirements"><a href="#Requirements" class="headerlink" title="Requirements"></a>Requirements</h3><p>Koa requires Node <code>7.6.0</code> or higher for <code>async/await</code> syntax.<br>You can use older Node versions with Babel (see more about it at <a href="http://koajs.com/" target="_blank" rel="noopener">Koa installation section</a>).  </p>
 <h3 id="Environment"><a href="#Environment" class="headerlink" title="Environment"></a>Environment</h3><h4 id="Node-js"><a href="#Node-js" class="headerlink" title="Node.js"></a>Node.js</h4><p>If Node is not installed yet, you can download it <a href="https://nodejs.org/en/download/" target="_blank" rel="noopener">here</a>. If you are a lucky owner of Linux or macOS, package managers can be used - this method described <a href="https://nodejs.org/en/download/package-manager/" target="_blank" rel="noopener">here</a>.<br>To check that the Node installation is correct, you can run the command:</p>
@@ -715,7 +722,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/Docs/2018/02/09/[en]Node_express_mongoDb/">Инструкция по созданию серверного приложения на nodejs + express + mongodb</a>
+      <a class="article-title" href="/Docs/2018/02/09/[en]Node_express_mongoDb/">Instruction for creating a server app on Nodejs, Express and MongoDB</a>
     </h1>
   
 
@@ -723,7 +730,8 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="Instruction-for-creating-a-server-app-on-Nodejs-Express-and-MongoDB"><a href="#Instruction-for-creating-a-server-app-on-Nodejs-Express-and-MongoDB" class="headerlink" title="Instruction for creating a server app on Nodejs, Express and MongoDB"></a>Instruction for creating a server app on Nodejs, Express and MongoDB</h1><hr>
+        <!-- # Instruction for creating a server app on Nodejs, Express and MongoDB -->
+<hr>
 <p>Based on simple example of app in which we can create, read, update and delete simple text documents</p>
 <h3 id="Component-installation"><a href="#Component-installation" class="headerlink" title="Component installation"></a>Component installation</h3><p>The official site of nodejs (<a href="https://nodejs.org/" target="_blank" rel="noopener">https://nodejs.org/</a>) has detailed installation instructions</p>
 <p>For centos:</p>
@@ -803,7 +811,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/Docs/2018/02/09/[en]node_koa_postgre/">Инструкция по созданию серверного приложения на nodejs + koa + postgresql</a>
+      <a class="article-title" href="/Docs/2018/02/09/[en]node_koa_postgre/">Simple application w/ Node.js + Koa + PostgreSQL</a>
     </h1>
   
 
@@ -811,7 +819,8 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="Simple-application-w-Node-js-Koa-PostgreSQL"><a href="#Simple-application-w-Node-js-Koa-PostgreSQL" class="headerlink" title="Simple application w/ Node.js + Koa + PostgreSQL"></a>Simple application w/ Node.js + Koa + PostgreSQL</h1><p>From Koa introduction:</p>
+        <!-- # Simple application w/ Node.js + Koa + PostgreSQL -->
+<p>From Koa introduction:</p>
 <blockquote>
 <p>Koa is a new web framework designed by the team behind Express, which aims to be a smaller, more expressive, and more robust foundation for web applications and APIs. Through leveraging generators Koa allows you to ditch callbacks and greatly increase error-handling. Koa does not bundle any middleware within core, and provides an elegant suite of methods that make writing servers fast and enjoyable.</p>
 </blockquote>
@@ -918,7 +927,8 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="Обзор-фреймворков-для-создания-серверного-приложения-на-nodejs"><a href="#Обзор-фреймворков-для-создания-серверного-приложения-на-nodejs" class="headerlink" title="Обзор фреймворков для создания серверного приложения на nodejs"></a>Обзор фреймворков для создания серверного приложения на nodejs</h1><h3 id="Что-такое-Node-js"><a href="#Что-такое-Node-js" class="headerlink" title="Что такое Node.js?"></a>Что такое Node.js?</h3><p>Node или Node.js — серверная реализация языка программирования JavaScript, основанная на движке V8. Предназначена для создания масштабируемых распределённых сетевых приложений, таких как веб-сервер. Node.js по целям использования сходен с каркасами Twisted на языке Python и EventMachine на Ruby. В отличие от большинства программ JavaScript, этот каркас исполняется не в браузере клиента, а на стороне сервера.</p>
+        <!-- # Обзор фреймворков для создания серверного приложения на nodejs -->
+<h3 id="Что-такое-Node-js"><a href="#Что-такое-Node-js" class="headerlink" title="Что такое Node.js?"></a>Что такое Node.js?</h3><p>Node или Node.js — серверная реализация языка программирования JavaScript, основанная на движке V8. Предназначена для создания масштабируемых распределённых сетевых приложений, таких как веб-сервер. Node.js по целям использования сходен с каркасами Twisted на языке Python и EventMachine на Ruby. В отличие от большинства программ JavaScript, этот каркас исполняется не в браузере клиента, а на стороне сервера.</p>
 <h3 id="Что-такое-framework"><a href="#Что-такое-framework" class="headerlink" title="Что такое framework?"></a>Что такое framework?</h3><p>framework — это набор инструментов, библиотек, хорошего кода, который поможет превратить рутинные задачи в модули, которые можно использовать неоднократно. Задача framework’а — позволить дизайнеру или разработчику сфокусироваться на задачах, являющимися уникальными в рамках данного проекта. Иначе говоря, не изобретать колесо раз за разом. </p>
 <h2 id="Теперь-непосредственно-сами-framework’и"><a href="#Теперь-непосредственно-сами-framework’и" class="headerlink" title="Теперь непосредственно сами framework’и"></a>Теперь непосредственно сами framework’и</h2><p>Рассмотрим такие вспомогательные средства для серверной разработки на JS, как:</p>
 <ul>
@@ -1029,15 +1039,15 @@
           </li>
         
           <li>
-            <a href="/Docs/2018/02/09/[en]node_express/">Инструкция по созданию серверного приложения на nodejs + express</a>
+            <a href="/Docs/2018/02/09/[en]node_express/">Instructions for creating a server application on nodejs + express</a>
           </li>
         
           <li>
-            <a href="/Docs/2018/02/09/[en]frameworks_node/">Обзор фреймворков для создания серверного приложения на nodejs</a>
+            <a href="/Docs/2018/02/09/[en]frameworks_node/">Review of frameworks for creating a server application on nodejs</a>
           </li>
         
           <li>
-            <a href="/Docs/2018/02/09/[en]node_express_postgresql/">Инструкция по созданию серверного приложения на nodejs + express + postgresql</a>
+            <a href="/Docs/2018/02/09/[en]node_express_postgresql/">Creating simple aplication using Node.js, Express and PostgreSQL.</a>
           </li>
         
       </ul>
