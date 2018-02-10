@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Инструкция по созданию серверного приложения на nodejs + koa + postgresql | Existend Docs</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="Simple application w/ Node.js + Koa + PostgreSQLFrom Koa introduction:  Koa is a new web framework designed by the team behind Express, which aims to be a smaller, more expressive, and more robust fou">
+<meta name="keywords" content="Node,Koa,PostgreSQL">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Инструкция по созданию серверного приложения на nodejs + koa + postgresql">
+<meta property="og:url" content="https://kir9819.github.io/Docs/2018/02/09/[en]node_koa_postgre/index.html">
+<meta property="og:site_name" content="Existend Docs">
+<meta property="og:description" content="Simple application w/ Node.js + Koa + PostgreSQLFrom Koa introduction:  Koa is a new web framework designed by the team behind Express, which aims to be a smaller, more expressive, and more robust fou">
+<meta property="og:locale" content="ru">
+<meta property="og:updated_time" content="2018-02-10T17:14:48.757Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Инструкция по созданию серверного приложения на nodejs + koa + postgresql">
+<meta name="twitter:description" content="Simple application w/ Node.js + Koa + PostgreSQLFrom Koa introduction:  Koa is a new web framework designed by the team behind Express, which aims to be a smaller, more expressive, and more robust fou">
+  
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/Docs/lib/font-awesome/css/font-awesome.min.css?v=4.7.0">
+  <link rel="stylesheet" href="/Docs/lib/fancybox/dist/jquery.fancybox.min.css">
+  <link rel="stylesheet" href="/Docs/css/main.css">
+  <script src="/Docs/lib/jquery/dist/jquery.min.js"></script>
+  
+  
+  
+  
+</head>
+<body>
+  <div id="wrapper">
+    <header id="header" class="clearfix">
+	<a id="logo" href="/Docs/" title="Existend Docs">Existend Docs</a>
+	
+	<nav id="nav-menu" class="clearfix">
+		<form id="search" method="post" action="./" role="search">
+			<input id="search-input" type="text" name="s" class="inputbox" value="Поиск" onfocus="if (value =='Поиск'){value =''}" onblur="if (value ==''){value='Поиск'}">
+		</form>
+		<ul>
+      
+				
+        <li><a class="main-nav-link" href="/Docs/">Домашняя страница</a></li>
+      
+				
+        <li><a class="main-nav-link" href="/Docs/archives">Архивы</a></li>
+      
+		</ul>
+	</nav>
+</header>
+    <section id="main" class="clearfix"><article class="post-detail">
+  <h1 class="post-title"><a href="/Docs/">Инструкция по созданию серверного приложения на nodejs + koa + postgresql</a></h1>
+  <ul class="post-meta">
+  <li><i class="fa fa-user"></i> Автор Kirill Aniskin</li>
+  <li><i class="fa fa-calendar"></i> Дата февр. 9</li>
+  <li><i class="fa fa-folder"></i> Категории
+  
+    <a class="article-category-link" href="/Docs/categories/EN/">EN</a>
+  
+  </li>
+</ul>
+  <div class="post-content">
+      
+      <h1 id="Simple-application-w-Node-js-Koa-PostgreSQL"><a href="#Simple-application-w-Node-js-Koa-PostgreSQL" class="headerlink" title="Simple application w/ Node.js + Koa + PostgreSQL"></a>Simple application w/ Node.js + Koa + PostgreSQL</h1><p>From Koa introduction:</p>
+<blockquote>
+<p>Koa is a new web framework designed by the team behind Express, which aims to be a smaller, more expressive, and more robust foundation for web applications and APIs. Through leveraging generators Koa allows you to ditch callbacks and greatly increase error-handling. Koa does not bundle any middleware within core, and provides an elegant suite of methods that make writing servers fast and enjoyable.</p>
+</blockquote>
+<h3 id="Requirements"><a href="#Requirements" class="headerlink" title="Requirements"></a>Requirements</h3><p>Koa requires Node <code>7.6.0</code> or higher for <code>async/await</code> syntax.<br>You can use older Node versions with Babel (see more about it at <a href="http://koajs.com/" target="_blank" rel="noopener">Koa installation section</a>).<br>PostgreSQL version does not matter. We will use the latest one.</p>
+<h3 id="Environment"><a href="#Environment" class="headerlink" title="Environment"></a>Environment</h3><h4 id="Node-js"><a href="#Node-js" class="headerlink" title="Node.js"></a>Node.js</h4><p>If Node is not installed yet, you can download it <a href="https://nodejs.org/en/download/" target="_blank" rel="noopener">here</a>. If you are a lucky owner of Linux or macOS, package managers can be used - this method described <a href="https://nodejs.org/en/download/package-manager/" target="_blank" rel="noopener">here</a>.<br>To check that the Node installation is correct, you can run the command:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ node --version</span><br></pre></td></tr></table></figure>
+<p>That will print the Node version.<br>Also for NPM:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm --version</span><br></pre></td></tr></table></figure>
+<h4 id="Dependencies-installation"><a href="#Dependencies-installation" class="headerlink" title="Dependencies installation"></a>Dependencies installation</h4><p>Create directory where all the code will be located. Run terminal and open this directory.</p>
+<p>Let’s initialize the package environment:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm init</span><br></pre></td></tr></table></figure>
+<p>NPM will ask you a few questions. Type answers for package name of author.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line">$ npm init</span><br><span class="line"></span><br><span class="line">This utility will walk you through creating a package.json file.</span><br><span class="line">It only covers the most common items, and tries to guess sensible defaults.</span><br><span class="line"></span><br><span class="line">See `npm <span class="built_in">help</span> json` <span class="keyword">for</span> definitive documentation on these fields</span><br><span class="line">and exactly what they <span class="keyword">do</span>.</span><br><span class="line"></span><br><span class="line">Use `npm install &lt;pkg&gt;` afterwards to install a package and</span><br><span class="line">save it as a dependency <span class="keyword">in</span> the package.json file.</span><br><span class="line"></span><br><span class="line">Press ^C at any time to quit.</span><br><span class="line">package name: (ex) exampleapp</span><br><span class="line">version: (1.0.0)</span><br><span class="line">description: Example application on Koa and PostgreSQL</span><br><span class="line">entry point: (index.js)</span><br><span class="line"><span class="built_in">test</span> <span class="built_in">command</span>:</span><br><span class="line">git repository:</span><br><span class="line">keywords:</span><br><span class="line">author: Nariman Safiulin &lt;woofilee@gmail.com&gt;</span><br><span class="line">license: (ISC)</span><br><span class="line">About to write to &lt;..&gt;\package.json:</span><br><span class="line"></span><br><span class="line">&#123;</span><br><span class="line">  <span class="string">"name"</span>: <span class="string">"exampleapp"</span>,</span><br><span class="line">  <span class="string">"version"</span>: <span class="string">"1.0.0"</span>,</span><br><span class="line">  <span class="string">"description"</span>: <span class="string">"Example application on Koa and PostgreSQL"</span>,</span><br><span class="line">  <span class="string">"main"</span>: <span class="string">"index.js"</span>,</span><br><span class="line">  <span class="string">"scripts"</span>: &#123;</span><br><span class="line">    <span class="string">"test"</span>: <span class="string">"echo \"Error: no test specified\" &amp;&amp; exit 1"</span></span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="string">"author"</span>: <span class="string">"Nariman Safiulin &lt;woofilee@gmail.com&gt;"</span>,</span><br><span class="line">  <span class="string">"license"</span>: <span class="string">"ISC"</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">Is this ok? (yes)</span><br></pre></td></tr></table></figure>
+<p>You should see the <code>package.json</code> file that NPM has created.</p>
+<p>Install <a href="https://github.com/koajs/koa" target="_blank" rel="noopener"><code>koa</code></a>:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm i koa</span><br></pre></td></tr></table></figure>
+<p>Also we need something for requests routing. We will use a <a href="https://github.com/alexmingoia/koa-router" target="_blank" rel="noopener"><code>koa-router</code></a> - popular and full-featured package.<br>Another one - <a href="https://github.com/koajs/logger" target="_blank" rel="noopener"><code>koa-logger</code></a> - for development logging.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm i koa-router koa-logger</span><br></pre></td></tr></table></figure>
+<p>For database we will use a <a href="https://github.com/brianc/node-postgres" target="_blank" rel="noopener"><code>node-postgres</code></a> driver. It’s a simple client, not a ORM.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm i pg</span><br></pre></td></tr></table></figure>
+<h4 id="PostgreSQL"><a href="#PostgreSQL" class="headerlink" title="PostgreSQL"></a>PostgreSQL</h4><p>You can download PostgreSQL <a href="https://www.postgresql.org/download/" target="_blank" rel="noopener">here</a> with a portable binaries for fast start w/o installation proccess.<br>To check the PostgreSQL installation, run the command:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo -u postgres psql</span><br></pre></td></tr></table></figure>
+<p>On Windows (type your own Windows user name instead of <code>postgres</code>, if you didn’t create a database manually):</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&gt; psql -U postgres</span><br></pre></td></tr></table></figure>
+<p>On Linux and macOS a PostgreSQL server should be running yet after installation via package manager.<br>Otherwise, or if you have Windows, follow next commands:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt; initdb -U postgres -D data</span><br><span class="line">&gt; pg_ctl -D data start</span><br></pre></td></tr></table></figure>
+<p>A default <code>postgres</code> database username is recommended, <code>data</code> - a database storage directory, you can provide any other path.<br>After that a <code>pg_ctl</code> command will start the PostgreSQL server (provide a path to the database storage).</p>
+<p>Check again, you should see a PostgreSQL prompt:</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">postgres=#</span><br></pre></td></tr></table></figure>
+<p>Type <code>\q</code> to exit.</p>
+<p>Default database <code>postgres</code> was created for us.</p>
+<h3 id="Hello-World"><a href="#Hello-World" class="headerlink" title="Hello, World!"></a>Hello, World!</h3><p>Create file <code>app.js</code> and copy the next code. It’s a  modified version of standart Koa example.</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> Koa = <span class="built_in">require</span>(<span class="string">'koa'</span>);</span><br><span class="line"><span class="keyword">const</span> Router = <span class="built_in">require</span>(<span class="string">'koa-router'</span>);</span><br><span class="line"><span class="keyword">const</span> Logger = <span class="built_in">require</span>(<span class="string">'koa-logger'</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> app = <span class="keyword">new</span> Koa();</span><br><span class="line"><span class="keyword">const</span> router = <span class="keyword">new</span> Router();</span><br><span class="line"></span><br><span class="line"><span class="comment">// Response to the World to the GET requests</span></span><br><span class="line">router.get(<span class="string">'/'</span>, <span class="keyword">async</span> (ctx) =&gt; &#123;</span><br><span class="line">  ctx.body = <span class="string">'Hello, World!\n'</span>;</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">// Response by name to the GET requests, :name is URL fragment/argument</span></span><br><span class="line">router.get(<span class="string">'/:name'</span>, <span class="keyword">async</span> (ctx) =&gt; &#123;</span><br><span class="line">  ctx.body = <span class="string">`Hello, <span class="subst">$&#123;ctx.params.name&#125;</span>!\n`</span>;</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">// Development logging</span></span><br><span class="line">app.use(Logger());</span><br><span class="line"><span class="comment">// Add routes and response to the OPTIONS requests</span></span><br><span class="line">app.use(router.routes()).use(router.allowedMethods());</span><br><span class="line"></span><br><span class="line"><span class="comment">// Listen the port</span></span><br><span class="line">app.listen(<span class="number">3000</span>, () =&gt; &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'Server running on port 3000'</span>);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>Now you can start the server:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ node app.js</span><br></pre></td></tr></table></figure>
+<p>If the server has successfully started, open the browser and go to <code>http://localhost:3000/</code>. You should see the <code>Hello, World!</code> page. Also, try to type your name, for example, <code>http://localhost:3000/Nariman</code>.<br>In your terminal you should see something like that:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">$ node app.js</span><br><span class="line"></span><br><span class="line">Server running on port 3000</span><br><span class="line">  &lt;-- GET /</span><br><span class="line">  --&gt; GET / 200 13ms 14b</span><br><span class="line">  &lt;-- GET /favicon.ico</span><br><span class="line">  --&gt; GET /favicon.ico 200 7ms 20b</span><br><span class="line">  &lt;-- GET /Nariman</span><br><span class="line">  --&gt; GET /Nariman 200 10ms 16b</span><br><span class="line">  &lt;-- GET /favicon.ico</span><br><span class="line">  --&gt; GET /favicon.ico 200 7ms 20b</span><br></pre></td></tr></table></figure>
+<p>Let’s connect to the database.<br>We will use the connection pool, because it’s a common way to use database drivers, especially for PostgreSQL. Pool has advatages over manual connections, due to each new manual connection can take some time for connection establishment and it requires some management to control the number of simultaneous connections.</p>
+<p>Add the dependency:</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> &#123; Pool &#125; = <span class="built_in">require</span>(<span class="string">'pg'</span>);</span><br></pre></td></tr></table></figure>
+<p>Right before the server booting code (before <code>app.listen</code> call):</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">app.pool = <span class="keyword">new</span> Pool(&#123;</span><br><span class="line">  user: <span class="string">'postgres'</span>,</span><br><span class="line">  host: <span class="string">'localhost'</span>,</span><br><span class="line">  database: <span class="string">'postgres'</span>,</span><br><span class="line">  password: <span class="string">''</span>, <span class="comment">// Password is empty be default</span></span><br><span class="line">  port: <span class="number">5432</span>, <span class="comment">// Default port</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>Then, change our routes, to query database for <code>Hello</code> string.</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">router.get(<span class="string">'/'</span>, <span class="keyword">async</span> (ctx) =&gt; &#123;</span><br><span class="line">  <span class="keyword">const</span> &#123; rows &#125; = <span class="keyword">await</span> ctx.app.pool.query(<span class="string">'SELECT $1::text as message'</span>, [<span class="string">'Hello, World!'</span>])</span><br><span class="line">  ctx.body = rows[<span class="number">0</span>].message;</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">router.get(<span class="string">'/:name'</span>, <span class="keyword">async</span> (ctx) =&gt; &#123;</span><br><span class="line">  <span class="keyword">const</span> &#123; rows &#125; = <span class="keyword">await</span> ctx.app.pool.query(<span class="string">'SELECT $1::text as message'</span>, [<span class="string">`Hello, <span class="subst">$&#123;ctx.params.name&#125;</span>!`</span>])</span><br><span class="line">  ctx.body = rows[<span class="number">0</span>].message;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>Note that Koa can auto-translate the result into JSON, if the response is not a string. If you just return <code>rows</code>, you’ll see the JSON response.</p>
+<p>Save and restart the server.</p>
+<h3 id="In-conclusion"><a href="#In-conclusion" class="headerlink" title="In conclusion"></a>In conclusion</h3><p>We wrote everything in one file. Of course, for a real project, you should create the project structure, and also take care of closing the PostgreSQL pool and Koa connections when shutting down the server.</p>
+<p>You can also use <a href="https://github.com/sindresorhus/awesome-nodejs#database" target="_blank" rel="noopener">other</a> database libraries, like <a href="http://sequelizejs.com/" target="_blank" rel="noopener">Sequelize</a>, <a href="http://bookshelfjs.org/" target="_blank" rel="noopener">Bookshelf</a>, <a href="https://github.com/dmfay/massive-js" target="_blank" rel="noopener">Massive</a>.</p>
+<h3 id="References"><a href="#References" class="headerlink" title="References"></a>References</h3><ul>
+<li>Node deps<ul>
+<li><a href="https://github.com/koajs/koa" target="_blank" rel="noopener">koa</a> (<a href="http://koajs.com/" target="_blank" rel="noopener">koajs.com</a>)</li>
+<li><a href="https://github.com/alexmingoia/koa-router" target="_blank" rel="noopener">koa-router</a></li>
+<li><a href="https://github.com/koajs/logger" target="_blank" rel="noopener">koa-logger</a></li>
+<li><a href="https://github.com/brianc/node-postgres" target="_blank" rel="noopener">node-postgres</a> (<a href="https://node-postgres.com" target="_blank" rel="noopener">node-postgres.com</a>)</li>
+</ul>
+</li>
+<li><a href="https://www.postgresql.org/" target="_blank" rel="noopener">PostgreSQL</a></li>
+<li><a href="https://www.digitalocean.com/community/tutorials/how-to-install-and-use-postgresql-on-ubuntu-16-04" target="_blank" rel="noopener">How To Install and Use PostgreSQL on Ubuntu 16.04</a></li>
+<li><a href="http://mherman.org/blog/2017/08/23/building-a-restful-api-with-koa-and-postgres/#.Wnr4JqiWbDc" target="_blank" rel="noopener">Building a RESTful API with Koa and Postgres</a></li>
+<li><a href="https://www.smashingmagazine.com/2016/08/getting-started-koa-2-async-functions/" target="_blank" rel="noopener">Building A Server-Side Application With Async Functions and Koa 2</a></li>
+<li><a href="https://github.com/koajs/examples" target="_blank" rel="noopener">Koa examples</a></li>
+<li><a href="https://github.com/koajs/koa/wiki" target="_blank" rel="noopener">Koa wiki</a> - links to the other useful stuff for Koa.</li>
+<li><a href="https://github.com/sindresorhus/awesome-nodejs" target="_blank" rel="noopener">Awesome Node.js</a></li>
+</ul>
+
+  </div>
+  
+    <div class="tags">
+    <span><i class="fa fa-tags"></i> Теги</span>
+      
+        <ul class="post-tag-list"><li class="post-tag-list-item"><a class="post-tag-list-link" href="/Docs/tags/Koa/">Koa</a></li><li class="post-tag-list-item"><a class="post-tag-list-link" href="/Docs/tags/Node/">Node</a></li><li class="post-tag-list-item"><a class="post-tag-list-link" href="/Docs/tags/PostgreSQL/">PostgreSQL</a></li></ul>
+      
+    </div>
+  
+
+</article>
+
+<!-- Comments -->
+
+<!-- End Comments --></section>
+    <footer id="footer" role="contentinfo">
+    <div>&copy; 2018 <a href="/">Existend Docs</a>.
+    Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>. Designed by <a href="http://rainylog.com" target="_blank">Rainy.</a>
+	</div>
+</footer><!-- end #footer -->
+
+  </div>
+  <script src="/Docs/lib/fancybox/dist/jquery.fancybox.min.js"></script>
+
+  <script src="/Docs/js/helper.js"></script>
+  <script src="/Docs/js/_third-party/gitment.js"></script>
+</body>
+</html>

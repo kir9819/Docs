@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Инструкция по созданию серверного приложения на nodejs + express + postgresql | Existend Docs</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="Creating simple aplication using Node.js, Express and PostgreSQL.Installation Node.jsWindows: In order to start, go to the download page Node.js (https://nodejs.org/en/download/). Select the installer">
+<meta name="keywords" content="Node,PostgreSQL,Express">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Инструкция по созданию серверного приложения на nodejs + express + postgresql">
+<meta property="og:url" content="https://kir9819.github.io/Docs/2018/02/09/[en]node_express_postgresql/index.html">
+<meta property="og:site_name" content="Existend Docs">
+<meta property="og:description" content="Creating simple aplication using Node.js, Express and PostgreSQL.Installation Node.jsWindows: In order to start, go to the download page Node.js (https://nodejs.org/en/download/). Select the installer">
+<meta property="og:locale" content="ru">
+<meta property="og:updated_time" content="2018-02-10T17:15:30.448Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Инструкция по созданию серверного приложения на nodejs + express + postgresql">
+<meta name="twitter:description" content="Creating simple aplication using Node.js, Express and PostgreSQL.Installation Node.jsWindows: In order to start, go to the download page Node.js (https://nodejs.org/en/download/). Select the installer">
+  
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/Docs/lib/font-awesome/css/font-awesome.min.css?v=4.7.0">
+  <link rel="stylesheet" href="/Docs/lib/fancybox/dist/jquery.fancybox.min.css">
+  <link rel="stylesheet" href="/Docs/css/main.css">
+  <script src="/Docs/lib/jquery/dist/jquery.min.js"></script>
+  
+  
+  
+  
+</head>
+<body>
+  <div id="wrapper">
+    <header id="header" class="clearfix">
+	<a id="logo" href="/Docs/" title="Existend Docs">Existend Docs</a>
+	
+	<nav id="nav-menu" class="clearfix">
+		<form id="search" method="post" action="./" role="search">
+			<input id="search-input" type="text" name="s" class="inputbox" value="Поиск" onfocus="if (value =='Поиск'){value =''}" onblur="if (value ==''){value='Поиск'}">
+		</form>
+		<ul>
+      
+				
+        <li><a class="main-nav-link" href="/Docs/">Домашняя страница</a></li>
+      
+				
+        <li><a class="main-nav-link" href="/Docs/archives">Архивы</a></li>
+      
+		</ul>
+	</nav>
+</header>
+    <section id="main" class="clearfix"><article class="post-detail">
+  <h1 class="post-title"><a href="/Docs/">Инструкция по созданию серверного приложения на nodejs + express + postgresql</a></h1>
+  <ul class="post-meta">
+  <li><i class="fa fa-user"></i> Автор Kirill Aniskin</li>
+  <li><i class="fa fa-calendar"></i> Дата февр. 9</li>
+  <li><i class="fa fa-folder"></i> Категории
+  
+    <a class="article-category-link" href="/Docs/categories/EN/">EN</a>
+  
+  </li>
+</ul>
+  <div class="post-content">
+      
+      <h1 id="Creating-simple-aplication-using-Node-js-Express-and-PostgreSQL"><a href="#Creating-simple-aplication-using-Node-js-Express-and-PostgreSQL" class="headerlink" title="Creating simple aplication using Node.js, Express and PostgreSQL."></a>Creating simple aplication using Node.js, Express and PostgreSQL.</h1><h3 id="Installation-Node-js"><a href="#Installation-Node-js" class="headerlink" title="Installation Node.js"></a>Installation Node.js</h3><p><strong>Windows:</strong></p>
+<p>In order to start, go to the download page Node.js (<a href="https://nodejs.org/en/download/" target="_blank" rel="noopener">https://nodejs.org/en/download/</a>). Select the installer that you want to download and install.</p>
+<p>After we run the installer and complete the installation step-by-step.</p>
+<p><strong>CentOS:</strong></p>
+<p>To install Node.js, you need to connect to the server using the SSH protocol. After that, you need to install the latest version of .nodejs from the repositories. For this:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">$ yum update</span><br><span class="line"></span><br><span class="line">// Install the Development Tools group</span><br><span class="line">$ yum -y groupinstall &quot;Development Tools&quot;</span><br><span class="line"></span><br><span class="line">// Enter the command to connect to the server and create several concurrent sessions</span><br><span class="line">$ yum -y install screen</span><br><span class="line"></span><br><span class="line">// Go to /usr/src and load the archive with Node.js</span><br><span class="line">$ cd / usr / src</span><br><span class="line">$ wget http://nodejs.org/dist/v0.10.4/node-v0.10.4.tar.gz</span><br><span class="line"></span><br><span class="line">// Extract the files from the archive and put them in the directory</span><br><span class="line">$ tar zxf node-v0.10.4.tar.gz</span><br><span class="line">$ cd node-v0.10.4</span><br><span class="line"></span><br><span class="line">// Create the installation file and run it</span><br><span class="line">$ make</span><br><span class="line">$ make install</span><br></pre></td></tr></table></figure>
+<p>Node.js is installed. By default, its binary code is in /usr/local/bin/node.</p>
+<p><strong>Ubuntu</strong></p>
+<p>To install Node and npm via apt-get, run these commands:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get update  </span><br><span class="line">sudo apt-get install nodejs  </span><br><span class="line">sudo ln -s /usr/bin/nodejs /usr/bin/node  </span><br><span class="line">sudo apt-get install npm</span><br></pre></td></tr></table></figure>
+<p>If you still want to use apt-get, but need a much newer version of Node, you should use this method.</p>
+<p>This is very similar to the last one I showed you, but instead we’ll be running a script (maintained and distributed by NodeSource) to show the package manager where to get the latest version.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">curl -sL https://deb.nodesource.com/setup_5.x | sudo -E bash -  </span><br><span class="line">sudo apt-get install -y nodejs  </span><br><span class="line">sudo ln -s /usr/bin/nodejs /usr/bin/node </span><br><span class="line"></span><br><span class="line">``` </span><br><span class="line"></span><br><span class="line">To verify that you have *Node.js* installed and check the version, run:</span><br></pre></td></tr></table></figure>
+<p>$ node –version</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">To start, run:</span><br></pre></td></tr></table></figure>
+<p>$ node<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br><span class="line">### Setting dependencies.</span><br><span class="line"></span><br><span class="line">You can interactively generate the * package.json * file with the * npm init * command in the terminal.</span><br></pre></td></tr></table></figure></p>
+<p>$ npm init</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">After running the command you will be asked to enter some data. After you receive them * package.json * will be automatically generated and placed in the folder of your application.</span><br><span class="line"></span><br><span class="line">If any dependencies are not installed, you can add them to your application with the following command:</span><br></pre></td></tr></table></figure>
+<p>npm install[module name] –save</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br><span class="line">### PostgreSQL installing.</span><br><span class="line"></span><br><span class="line">PostgreSQL is a very popular database server, so it is present in official Ubuntu repositories. </span><br><span class="line"></span><br><span class="line">**Windows**</span><br><span class="line"></span><br><span class="line">You can download PostgreSQL from the official site download page here - http://www.postgresql.org/download/windows/</span><br><span class="line"></span><br><span class="line">Download the installer by selecting a version suitable for the system capacity and following the steps offered by the installer.</span><br><span class="line"></span><br><span class="line">**CentOS**</span><br><span class="line"></span><br><span class="line">To install the latest version, add the official repository with the following command:</span><br></pre></td></tr></table></figure>
+<p>$  sudo rpm -Uvh <a href="http://yum.postgresql.org/9.5/redhat/rhel-7-x86_64/pgdg-centos95-9.5-2.noarch.rpm" target="_blank" rel="noopener">http://yum.postgresql.org/9.5/redhat/rhel-7-x86_64/pgdg-centos95-9.5-2.noarch.rpm</a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">After the repository is added to your system, you can proceed to install the program.</span><br><span class="line">The installation of Postgresql CentOS is performed by the command:</span><br></pre></td></tr></table></figure>
+<p> $ sudo yum install postgresql96-server postgresql96</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">Immediately after installing Postgresql, the server is not yet ready for use, you need to initialize the necessary databases. To do this, execute:</span><br></pre></td></tr></table></figure>
+<p> $  /usr/pgsql-9.6/bin/postgresql96-setup initdb<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br><span class="line">**Ubuntu**</span><br><span class="line"></span><br><span class="line">However, in PPA developers PostgreSQL you can find the latest version.</span><br><span class="line"></span><br><span class="line">Add the PostgreSQL repository to the system source list:</span><br></pre></td></tr></table></figure></p>
+<p>$ sudo sh -c ‘echo “deb <a href="http://apt.postgresql.org/pub/repos/apt/" target="_blank" rel="noopener">http://apt.postgresql.org/pub/repos/apt/</a> <code>lsb_release -cs</code>-pgdg main” &gt;&gt; /etc/apt/sources.list.d/pgdg.list’</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">and a key:</span><br></pre></td></tr></table></figure>
+<p>$ wget -q <a href="https://www.postgresql.org/media/keys/ACCC4CF8.asc" target="_blank" rel="noopener">https://www.postgresql.org/media/keys/ACCC4CF8.asc</a> -O - | sudo apt-key add -</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">This will allow you to receive the most recent versions when upgrading packages.</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>initdb -U postgres -D data<br>pg_ctl -D data start<br>psql -U postgres<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">Here *postgres* is the user name, it&apos;s better to specify it by default, for starters, and *data* is the directory where databases will be stored, you can specify any convenient.</span><br><span class="line">After that *pg_ctl* starts PostgreSQL (indicating the directory with the databases).</span><br><span class="line"></span><br><span class="line">At the end, we should see a welcome console:</span><br></pre></td></tr></table></figure></p>
+</blockquote>
+<p>postgres=#<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">### Express installing.</span><br><span class="line"></span><br><span class="line">To install Express and add it to the dependency list, you must go to the project folder and run the command:</span><br></pre></td></tr></table></figure></p>
+<p>$ npm install express –save</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">### Creating a simple server application.</span><br><span class="line"></span><br><span class="line">Create the directory where your project will be stored.</span><br></pre></td></tr></table></figure>
+<p>$ mkdir nodejs-express-postgresql/<br>$ cd nodejs-express-postgresql/</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">Now we need to initialize our application:</span><br></pre></td></tr></table></figure>
+<p>$ npm init -y</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">This command will create * package.json * with standard configuration settings.</span><br><span class="line"></span><br><span class="line">Now create a file with our application.</span><br></pre></td></tr></table></figure>
+<p>$ touch app.js</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">Now you need to connect and configure Express.</span><br></pre></td></tr></table></figure>
+<p>const express = require(‘express’);<br>const bodyParser = require(‘body-parser’);</p>
+<p>// Set up the express app<br>const app = express();</p>
+<p>// Setup a default catch-all route that sends back a welcome message in JSON format.<br>app.get(‘*’, (req, res) =&gt; res.status(200).send({<br>  message: ‘Welcome, my frined.’,<br>}));</p>
+<p>module.exports = app;</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">Now if we run our server</span><br></pre></td></tr></table></figure>
+<p>npm run start:dev</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">And go to http://localhost:8000/, then we will see the message *Welcome, my friend.*</span><br><span class="line"></span><br><span class="line">Now you need to connect our database.</span><br><span class="line">We will immediately use the pool, not separate connections. This is a common practice, especially for PostgreSQL. The pool allows you to store multiple connections, thus not wasting time creating them and not dealing with their management.</span><br><span class="line"></span><br><span class="line">First, configure the dependency, then add the connection to our database.</span><br></pre></td></tr></table></figure>
+<p>const  Pool  = require(‘pg’).Pool;</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">By default, *PostgreSQL* does not have a password, and the standard port is 5432.</span><br></pre></td></tr></table></figure>
+<p>const config = {<br>    user: ‘postgres’,<br>    host: ‘localhost’,<br>    database: ‘users’,<br>    password: ‘’, </p>
+<p>  };</p>
+<p>  const pool = new Pool(config);</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">Now it only remains to make our function, which will show all entries from the table *users*.</span><br></pre></td></tr></table></figure>
+<p>(async () =&gt; {<br>    const client = await pool.connect()<br>    try {<br>      const res = await pool.query(“select * from users”);<br>      console.log(res.rows[0])<br>    } finally {<br>      client.release()<br>    }<br>  })().catch(e =&gt; console.log(e.stack))</p>
+<p>  ```</p>
+<p>Now when you reboot our server you can see the result.</p>
+<h3 id="Materials-and-useful-links-that-are-used-in-the-work"><a href="#Materials-and-useful-links-that-are-used-in-the-work" class="headerlink" title="Materials and useful links that are used in the work."></a>Materials and useful links that are used in the work.</h3><p><strong>PostgreSQL:</strong><br>    <a href="https://node-postgres.com/" target="_blank" rel="noopener">https://node-postgres.com/</a><br>    <a href="http://expressjs.com/ru/guide/database-integration.html" target="_blank" rel="noopener">http://expressjs.com/ru/guide/database-integration.html</a></p>
+<p><strong>Node.js:</strong><br>    <a href="https://nodejs.org/en/" target="_blank" rel="noopener">https://nodejs.org/en/</a><br>    <a href="https://medium.com/devschacht/node-hero-chapter-1-239f7afeb1d1" target="_blank" rel="noopener">https://medium.com/devschacht/node-hero-chapter-1-239f7afeb1d1</a><br>    <a href="https://node-postgres.com/features/pooling" target="_blank" rel="noopener">https://node-postgres.com/features/pooling</a></p>
+<p><strong>Express:</strong><br>    <a href="http://expressjs.com/ru/" target="_blank" rel="noopener">http://expressjs.com/ru/</a></p>
+<p><strong>NPM:</strong><br>    <a href="https://www.npmjs.com/" target="_blank" rel="noopener">https://www.npmjs.com/</a></p>
+
+  </div>
+  
+    <div class="tags">
+    <span><i class="fa fa-tags"></i> Теги</span>
+      
+        <ul class="post-tag-list"><li class="post-tag-list-item"><a class="post-tag-list-link" href="/Docs/tags/Express/">Express</a></li><li class="post-tag-list-item"><a class="post-tag-list-link" href="/Docs/tags/Node/">Node</a></li><li class="post-tag-list-item"><a class="post-tag-list-link" href="/Docs/tags/PostgreSQL/">PostgreSQL</a></li></ul>
+      
+    </div>
+  
+
+</article>
+
+<!-- Comments -->
+
+<!-- End Comments --></section>
+    <footer id="footer" role="contentinfo">
+    <div>&copy; 2018 <a href="/">Existend Docs</a>.
+    Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>. Designed by <a href="http://rainylog.com" target="_blank">Rainy.</a>
+	</div>
+</footer><!-- end #footer -->
+
+  </div>
+  <script src="/Docs/lib/fancybox/dist/jquery.fancybox.min.js"></script>
+
+  <script src="/Docs/js/helper.js"></script>
+  <script src="/Docs/js/_third-party/gitment.js"></script>
+</body>
+</html>

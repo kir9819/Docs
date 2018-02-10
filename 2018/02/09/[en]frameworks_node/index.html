@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Обзор фреймворков для создания серверного приложения на nodejs | Existend Docs</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="Review of frameworks for creating a server application on nodejsWhat is Node.js?Node or Node.js is a server implementation of the JavaScript programming language, based on the V8 engine. It is designe">
+<meta name="keywords" content="Node">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Обзор фреймворков для создания серверного приложения на nodejs">
+<meta property="og:url" content="https://kir9819.github.io/Docs/2018/02/09/[en]frameworks_node/index.html">
+<meta property="og:site_name" content="Existend Docs">
+<meta property="og:description" content="Review of frameworks for creating a server application on nodejsWhat is Node.js?Node or Node.js is a server implementation of the JavaScript programming language, based on the V8 engine. It is designe">
+<meta property="og:locale" content="ru">
+<meta property="og:updated_time" content="2018-02-10T17:12:14.203Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Обзор фреймворков для создания серверного приложения на nodejs">
+<meta name="twitter:description" content="Review of frameworks for creating a server application on nodejsWhat is Node.js?Node or Node.js is a server implementation of the JavaScript programming language, based on the V8 engine. It is designe">
+  
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/Docs/lib/font-awesome/css/font-awesome.min.css?v=4.7.0">
+  <link rel="stylesheet" href="/Docs/lib/fancybox/dist/jquery.fancybox.min.css">
+  <link rel="stylesheet" href="/Docs/css/main.css">
+  <script src="/Docs/lib/jquery/dist/jquery.min.js"></script>
+  
+  
+  
+  
+</head>
+<body>
+  <div id="wrapper">
+    <header id="header" class="clearfix">
+	<a id="logo" href="/Docs/" title="Existend Docs">Existend Docs</a>
+	
+	<nav id="nav-menu" class="clearfix">
+		<form id="search" method="post" action="./" role="search">
+			<input id="search-input" type="text" name="s" class="inputbox" value="Поиск" onfocus="if (value =='Поиск'){value =''}" onblur="if (value ==''){value='Поиск'}">
+		</form>
+		<ul>
+      
+				
+        <li><a class="main-nav-link" href="/Docs/">Домашняя страница</a></li>
+      
+				
+        <li><a class="main-nav-link" href="/Docs/archives">Архивы</a></li>
+      
+		</ul>
+	</nav>
+</header>
+    <section id="main" class="clearfix"><article class="post-detail">
+  <h1 class="post-title"><a href="/Docs/">Обзор фреймворков для создания серверного приложения на nodejs</a></h1>
+  <ul class="post-meta">
+  <li><i class="fa fa-user"></i> Автор Kirill Aniskin</li>
+  <li><i class="fa fa-calendar"></i> Дата февр. 9</li>
+  <li><i class="fa fa-folder"></i> Категории
+  
+    <a class="article-category-link" href="/Docs/categories/EN/">EN</a>
+  
+  </li>
+</ul>
+  <div class="post-content">
+      
+      <h1 id="Review-of-frameworks-for-creating-a-server-application-on-nodejs"><a href="#Review-of-frameworks-for-creating-a-server-application-on-nodejs" class="headerlink" title="Review of frameworks for creating a server application on nodejs"></a>Review of frameworks for creating a server application on nodejs</h1><h3 id="What-is-Node-js"><a href="#What-is-Node-js" class="headerlink" title="What is Node.js?"></a>What is Node.js?</h3><p>Node or Node.js is a server implementation of the JavaScript programming language, based on the V8 engine. It is designed to create scalable distributed network applications, such as a web server. Node.js for purposes of use is similar to Twisted frameworks in Python and EventMachine in Ruby. Unlike most JavaScript programs, this framework is executed not on the client’s browser, but on the server side.</p>
+<h3 id="What-is-framework"><a href="#What-is-framework" class="headerlink" title="What is framework?"></a>What is framework?</h3><p>framework is a set of tools, libraries, good code that will help turn routine tasks into modules that can be used repeatedly. The task of the framework is to allow the designer or developer to focus on tasks that are unique within this project. In other words, do not reinvent the wheel time after time.</p>
+<h2 id="Now-the-frameworks-themselves"><a href="#Now-the-frameworks-themselves" class="headerlink" title="Now the frameworks themselves"></a>Now the frameworks themselves</h2><p>Consider such auxiliary tools for server development on JS, like:</p>
+<ul>
+<li>Express</li>
+<li>Meteor</li>
+<li>Mean</li>
+<li>Koa</li>
+<li>Hapi</li>
+<li>Sails</li>
+<li>Socket</li>
+</ul>
+<h3 id="Express"><a href="#Express" class="headerlink" title="Express"></a>Express</h3><p>Express is a minimalistic and flexible web framework for Node.js applications, providing an extensive set of functions for mobile and web applications.</p>
+<p>Express, as is well known, develops its own way, unlike other frameworks that rely heavily on Rails, but also borrowed a lot from another Ruby framework called Sinatra. The concept is simple: the framework provides enough opportunities for starting and running “on the fly”, without requiring much time for preparation.</p>
+<p>This is the framework that makes the creation of most sites very simple. The first thing you need to do is install it.<br><code>$ npm install express --save</code><br>Together with the site node, you will have the <code>npm</code> command. This tool gives you access to a huge number of modules created by the community, and Express is just one of them.</p>
+<h5 id="Pluses-of-this-framework"><a href="#Pluses-of-this-framework" class="headerlink" title="Pluses of this framework:"></a>Pluses of this framework:</h5><p>1) Low entry threshold, Express is practically the standard Node.js-application.<br>2) Complete customization.</p>
+<h5 id="Minuses"><a href="#Minuses" class="headerlink" title="Minuses:"></a>Minuses:</h5><p>1) All resources must be created manually and, as a result, there will be a lot of repeated code or worse - own library.<br>2) Each resource requires testing or a simple check for the 500th error.<br>3) Refactoring will become painful, as it will be necessary to rule everything and everywhere.<br>4) There is no standard approach, you need to look for your own.<br>-&gt;<a href="https://www.liveedu.tv/khusamov/2oy4m-obuchenie-anguliar-2-na-khodu/3V59J-nodejs-express-3/" target="_blank" rel="noopener">Example of development on Express</a><br>-&gt;<a href="http://expressjs.com/" target="_blank" rel="noopener">Official site</a></p>
+<h3 id="Meteor"><a href="#Meteor" class="headerlink" title="Meteor"></a>Meteor</h3><p>Meteor is an MVC (Model-View-Controller) open source framework, with which you can create real-time Web applications. One of the most important features of the platform is that it allows you to use the same code both on the server side and on the client side. Between the server and the client, as a rule, data is transferred, but not HTML-code. The framework supports OS X, Windows and Linux. Its reactive programming model allows you to create applications using less JavaScript code.</p>
+<h5 id="Pluses-of-this-framework-1"><a href="#Pluses-of-this-framework-1" class="headerlink" title="Pluses of this framework:"></a>Pluses of this framework:</h5><p>1) The server and client code is written in one language<br>2) Conveniently debug the code directly from the browser<br>3) You can quickly demonstrate the status of the project to the client using meteor deploy</p>
+<h5 id="Minuses-1"><a href="#Minuses-1" class="headerlink" title="Minuses:"></a>Minuses:</h5><p>1) Not suitable for large projects<br>2) Not at all suitable for mobile devices due to the large amount of JavaScript<br>3) In the code some trivial problems have to be solved with the help of cumbersome constructions<br>-&gt;<a href="https://www.liveedu.tv/spahi4/2QY0m-ruen-react-simple-app-graphql/9mLEz-ruen-dj-site-meteor-polymer-4/" target="_blank" rel="noopener">Example of development on Meteor</a><br>-&gt;<a href="https://www.meteor.com/" target="_blank" rel="noopener">Official site</a></p>
+<h3 id="Mean"><a href="#Mean" class="headerlink" title="Mean"></a>Mean</h3><p>MEAN (an abbreviation of MongoDB, Express.js, Angular.js, Node.js) is a set of server software that is used for web development. At the client, server, and database level, the entire MEAN stack is written in JavaScript. Displacement of the base platform from the OS (Linux) to the runtime JavaScript (Node.js) carries with it independence from the OS: Node.js runs on Windows and OS X as well as on Linux.</p>
+<p>The main shift MEAN is the transition from the traditional generation of server-side pages to targeting single-page applications (SPAs) on the client side.<br>-&gt;<a href="https://www.liveedu.tv/artzub/ZWbwR-my-new-site-mean/5O38x-my-new-site-mean/" target="_blank" rel="noopener">Example of development on Mean</a><br>-&gt;<a href="http://meanjs.org/" target="_blank" rel="noopener">Official site</a></p>
+<h3 id="Koa"><a href="#Koa" class="headerlink" title="Koa"></a>Koa</h3><p>The development team of the Express.js framework created another framework called Koa.js - the next generation futuristic framework for Node.js, which promises to be more concise and vivid in comparison with Express.js. Koa.js is focused on creating web applications and APIs, its main advantage is generators, which are an excellent way to avoid callbacks, and help developers in correcting errors.<br>-&gt;<a href="https://www.youtube.com/watch?time_continue=235&amp;v=HFsmBZZ0bm4" target="_blank" rel="noopener">Example of development on koajs</a><br>-&gt;<a href="http://koajs.com/" target="_blank" rel="noopener">Official site</a></p>
+<h3 id="Hapi"><a href="#Hapi" class="headerlink" title="Hapi"></a>Hapi</h3><p>Less well-known framework, which is developed by the team of Walmart Labs. Unlike Express, it has a slightly different approach, which provides more functionality right out of the box. The pluses include full control over the reception of requests and a detailed reference with the generation of documentation.</p>
+<h5 id="Pluses-of-this-framework-2"><a href="#Pluses-of-this-framework-2" class="headerlink" title="Pluses of this framework:"></a>Pluses of this framework:</h5><p>1) Full control over the reception of requests.<br>2) Detailed reference with the generation of documentation.</p>
+<h5 id="Minuses-2"><a href="#Minuses-2" class="headerlink" title="Minuses:"></a>Minuses:</h5><p>1) hapi, as well as Express, gives excellent opportunities, but how to use them, you must understand yourself.<br>-&gt;<a href="https://hapijs.com/" target="_blank" rel="noopener">Official site</a></p>
+<h3 id="Sails"><a href="#Sails" class="headerlink" title="Sails"></a>Sails</h3><p>Sails.js is an MVC (Model-View-Controller) framework that allows you to easily and quickly create Node.js applications. Sails.js is best suited for creating real-time applications. It is based on the MVC pattern, like Ruby on Rails, but also supports the requirements of modern applications: software interfaces with a scalable, service-oriented architecture. This framework is particularly suitable for the development of chat rooms, real-time toolbars and multiplayer games.<br>-&gt;<a href="https://sailsjs.com/" target="_blank" rel="noopener">Offcial site</a> </p>
+<h3 id="Socket"><a href="#Socket" class="headerlink" title="Socket"></a>Socket</h3><p>Socket. IO - JavaScript library for web applications and real-time data exchange. It consists of two parts: client, which runs in the browser and server for node.js. Both components have a similar API.</p>
+<h5 id="Pluses"><a href="#Pluses" class="headerlink" title="Pluses:"></a>Pluses:</h5><p>1) Powerful and easy to use<br>2) Used by many large companies<br>-&gt;<a href="https://socket.io/" target="_blank" rel="noopener">Offisial site</a><br>-&gt;<a href="https://habrahabr.ru/sandbox/90655/" target="_blank" rel="noopener">Using the Socket library</a><br>-&gt;<a href="https://nodeguide.ru/doc/modules-you-should-know/socketio/" target="_blank" rel="noopener">One more example</a></p>
+<h3 id="Conclusion"><a href="#Conclusion" class="headerlink" title="Conclusion"></a>Conclusion</h3><p>Actually, on this we examined several frameworks for server development on JS. For a more detailed dive, you need to use links to official sites.</p>
+
+  </div>
+  
+    <div class="tags">
+    <span><i class="fa fa-tags"></i> Теги</span>
+      
+        <ul class="post-tag-list"><li class="post-tag-list-item"><a class="post-tag-list-link" href="/Docs/tags/Node/">Node</a></li></ul>
+      
+    </div>
+  
+
+</article>
+
+<!-- Comments -->
+
+<!-- End Comments --></section>
+    <footer id="footer" role="contentinfo">
+    <div>&copy; 2018 <a href="/">Existend Docs</a>.
+    Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>. Designed by <a href="http://rainylog.com" target="_blank">Rainy.</a>
+	</div>
+</footer><!-- end #footer -->
+
+  </div>
+  <script src="/Docs/lib/fancybox/dist/jquery.fancybox.min.js"></script>
+
+  <script src="/Docs/js/helper.js"></script>
+  <script src="/Docs/js/_third-party/gitment.js"></script>
+</body>
+</html>

@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Инструкция по созданию серверного приложения на nodejs + express + mongoDB | Existend Docs</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="Инструкция по созданию серверного приложения на nodejs + express + mongodb Для понимания подойдет простейший пример, в котором мы сможем создавать, читать, обновлять и удалять простые текстовые докуме">
+<meta name="keywords" content="Node,Koa,MongoDB">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Инструкция по созданию серверного приложения на nodejs + express + mongoDB">
+<meta property="og:url" content="https://kir9819.github.io/Docs/2018/02/09/[ru]Node_express_mongoDb/index.html">
+<meta property="og:site_name" content="Existend Docs">
+<meta property="og:description" content="Инструкция по созданию серверного приложения на nodejs + express + mongodb Для понимания подойдет простейший пример, в котором мы сможем создавать, читать, обновлять и удалять простые текстовые докуме">
+<meta property="og:locale" content="ru">
+<meta property="og:image" content="https://image.ibb.co/dHTQMH/1.png">
+<meta property="og:image" content="https://image.ibb.co/icVGTx/2.png">
+<meta property="og:image" content="https://image.ibb.co/n4YQMH/3.png">
+<meta property="og:updated_time" content="2018-02-10T17:14:09.830Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Инструкция по созданию серверного приложения на nodejs + express + mongoDB">
+<meta name="twitter:description" content="Инструкция по созданию серверного приложения на nodejs + express + mongodb Для понимания подойдет простейший пример, в котором мы сможем создавать, читать, обновлять и удалять простые текстовые докуме">
+<meta name="twitter:image" content="https://image.ibb.co/dHTQMH/1.png">
+  
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/Docs/lib/font-awesome/css/font-awesome.min.css?v=4.7.0">
+  <link rel="stylesheet" href="/Docs/lib/fancybox/dist/jquery.fancybox.min.css">
+  <link rel="stylesheet" href="/Docs/css/main.css">
+  <script src="/Docs/lib/jquery/dist/jquery.min.js"></script>
+  
+  
+  
+  
+</head>
+<body>
+  <div id="wrapper">
+    <header id="header" class="clearfix">
+	<a id="logo" href="/Docs/" title="Existend Docs">Existend Docs</a>
+	
+	<nav id="nav-menu" class="clearfix">
+		<form id="search" method="post" action="./" role="search">
+			<input id="search-input" type="text" name="s" class="inputbox" value="Поиск" onfocus="if (value =='Поиск'){value =''}" onblur="if (value ==''){value='Поиск'}">
+		</form>
+		<ul>
+      
+				
+        <li><a class="main-nav-link" href="/Docs/">Домашняя страница</a></li>
+      
+				
+        <li><a class="main-nav-link" href="/Docs/archives">Архивы</a></li>
+      
+		</ul>
+	</nav>
+</header>
+    <section id="main" class="clearfix"><article class="post-detail">
+  <h1 class="post-title"><a href="/Docs/">Инструкция по созданию серверного приложения на nodejs + express + mongoDB</a></h1>
+  <ul class="post-meta">
+  <li><i class="fa fa-user"></i> Автор Kirill Aniskin</li>
+  <li><i class="fa fa-calendar"></i> Дата февр. 9</li>
+  <li><i class="fa fa-folder"></i> Категории
+  
+    <a class="article-category-link" href="/Docs/categories/RU/">RU</a>
+  
+  </li>
+</ul>
+  <div class="post-content">
+      
+      <h1 id="Инструкция-по-созданию-серверного-приложения-на-nodejs-express-mongodb"><a href="#Инструкция-по-созданию-серверного-приложения-на-nodejs-express-mongodb" class="headerlink" title="Инструкция по созданию серверного приложения на nodejs + express + mongodb"></a>Инструкция по созданию серверного приложения на nodejs + express + mongodb</h1><hr>
+<p>Для понимания подойдет простейший пример, в котором мы сможем создавать, читать, обновлять и удалять простые текстовые документы</p>
+<h3 id="Установка-компонентов"><a href="#Установка-компонентов" class="headerlink" title="Установка компонентов"></a>Установка компонентов</h3><p>На официальном сайте node (<a href="https://nodejs.org/" target="_blank" rel="noopener">https://nodejs.org/</a>) есть подробные инструкции по установке<br>Примеры для самого распространенного, если не хочется переходить и искать</p>
+<p>Для centos:</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ curl —silent —location https://rpm.nodesource.com/setup_9.x | sudo bash -</span><br><span class="line">$ sudo yum -y install nodejs</span><br><span class="line">$ sudo yum install gcc-c++ make</span><br></pre></td></tr></table></figure>
+<p>Для ubuntu:<br><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ curl -sL https://deb.nodesource.com/setup_9.x | sudo -E bash -</span><br><span class="line">$ sudo apt-get install -y nodejs</span><br><span class="line">$ sudo apt-get install -y build-essential</span><br></pre></td></tr></table></figure></p>
+<p>Затем организуем папку для проекта и в ней выполняем команду для его инициализации:<br>initialization in it:<br><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm init</span><br></pre></td></tr></table></figure></p>
+<h4 id="Отвечаем-на-вопросы-следующие-вопросы"><a href="#Отвечаем-на-вопросы-следующие-вопросы" class="headerlink" title="Отвечаем на вопросы следующие вопросы"></a>Отвечаем на вопросы следующие вопросы</h4><ul>
+<li>Название проекта</li>
+<li>Версия проекта</li>
+<li>Описание проекта</li>
+<li>Входная точка</li>
+<li>Команда на тестирование</li>
+<li>Репозиторий гитхаба</li>
+<li>Ключевые слова проекта</li>
+<li>Автор проекта</li>
+<li>Лицензия</li>
+</ul>
+<h5 id="И-подтверждаем-после-чего-в-папке-появляется-файл-package-json-описывающий-проект"><a href="#И-подтверждаем-после-чего-в-папке-появляется-файл-package-json-описывающий-проект" class="headerlink" title="И подтверждаем, после чего в папке появляется файл package.json, описывающий проект"></a>И подтверждаем, после чего в папке появляется файл package.json, описывающий проект</h5><p>Теперь установим оставшиеся компоненты: Express и MongoDB(последняя версия плагина некорректно работает с БД, так что лучше установить более раннюю):<br><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm install --save express mongodb@2.2.16</span><br></pre></td></tr></table></figure></p>
+<p>Так же для удобства обработки url-encoded запросов устанавливаем body-parser:<br><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm install --save body-parser</span><br></pre></td></tr></table></figure></p>
+<p>И для удобства разработки хорошо бы установить Nodemon, который каждый раз будет перезапускать сервер, когда будут изменяться какие-либо файлы:<br><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm install --save-dev nodemon</span><br></pre></td></tr></table></figure></p>
+<p>А дальше для подключения Nodemon надо добавить следующее в package.json:<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="string">"name"</span>: <span class="string">"notable"</span>,</span><br><span class="line">  <span class="string">"version"</span>: <span class="string">"1.0.0"</span>,</span><br><span class="line">  <span class="string">"description"</span>: <span class="string">""</span>,</span><br><span class="line">  <span class="string">"main"</span>: <span class="string">"index.js"</span>,</span><br><span class="line">  <span class="string">"scripts"</span>: &#123;</span><br><span class="line">    <span class="string">"test"</span>: <span class="string">"echo \"Error^ no test specified\" &amp;&amp; exit 1"</span>,</span><br><span class="line">    <span class="string">"dev"</span>: <span class="string">"nodemon server.js"</span></span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="string">"author"</span>: <span class="string">""</span>,</span><br><span class="line">  <span class="string">"license"</span>: <span class="string">"ISC"</span>,</span><br><span class="line">  <span class="string">"dependencies"</span>: &#123;</span><br><span class="line">    <span class="string">"body-parser"</span>: <span class="string">"^1.18.2"</span>,</span><br><span class="line">    <span class="string">"express"</span>: <span class="string">"^4.16.2"</span>,</span><br><span class="line">    <span class="string">"mongodb"</span>: <span class="string">"^2.2.16"</span></span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="string">"devDependencies"</span>: &#123;</span><br><span class="line">    <span class="string">"nodemon"</span>: <span class="string">"^1.14.2"</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>Чтобы тестировать наше приложение установим postman(<a href="https://www.getpostman.com/" target="_blank" rel="noopener">https://www.getpostman.com/</a>) – он будет имитировать запросы </p>
+<h3 id="Запуск-сервера"><a href="#Запуск-сервера" class="headerlink" title="Запуск сервера"></a>Запуск сервера</h3><p>Создадим файл server.js,в котором пропишем зависимости (то с чем будет работать сервер), укажем порт и запустим прослушивание:<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> express        = <span class="built_in">require</span>(<span class="string">'express'</span>);</span><br><span class="line"><span class="keyword">const</span> MongoClient    = <span class="built_in">require</span>(<span class="string">'mongodb'</span>).MongoClient;</span><br><span class="line"><span class="keyword">const</span> bodyParser     = <span class="built_in">require</span>(<span class="string">'body-parser'</span>);</span><br><span class="line"><span class="keyword">const</span> app            = express();</span><br><span class="line"><span class="keyword">const</span> port = <span class="number">8080</span>;</span><br><span class="line">app.listen(port, () =&gt; &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'We are live on '</span> + port);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></p>
+<p>Запустим сервер:<br><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm run dev</span><br></pre></td></tr></table></figure></p>
+<p>В терминале теперь можно видеть сообщение “We are live on port 8080”</p>
+<h3 id="Структура-проекта"><a href="#Структура-проекта" class="headerlink" title="Структура проекта"></a>Структура проекта</h3><p>Для более удобного структурирования проекта стоит создать папку app, в ней создаем папку routes, а в ней – файлы index.js и note_routes.js</p>
+<p>Таким образом структура выглядит так: в app/routes – наши обработчики маршрутов, в папке node_modules – модули нашего проекта, а server.js непосредственно описывает наш сервер.</p>
+<h3 id="Подключение-БД"><a href="#Подключение-БД" class="headerlink" title="Подключение БД"></a>Подключение БД</h3><p>В корень проекта добавляем директорию config, создаем в ней файл db.js.<br>В файл db.js пишем следующее:<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">  url : <span class="string">'mongodb://localhost:27017/&lt;yourDataBase&gt;'</span> </span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
+<p>А в файл server.js добавляем:<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> express        = <span class="built_in">require</span>(<span class="string">'express'</span>);</span><br><span class="line"><span class="keyword">const</span> MongoClient    = <span class="built_in">require</span>(<span class="string">'mongodb'</span>).MongoClient;</span><br><span class="line"><span class="keyword">const</span> bodyParser     = <span class="built_in">require</span>(<span class="string">'body-parser'</span>);</span><br><span class="line"><span class="keyword">const</span> db = <span class="built_in">require</span>(‘./config/db’);</span><br><span class="line"><span class="keyword">const</span> app            = express();</span><br><span class="line"><span class="keyword">const</span> port = <span class="number">8080</span>;</span><br><span class="line">app.use(bodyParser.urlencoded(&#123; <span class="attr">extended</span>: <span class="literal">true</span> &#125;));</span><br><span class="line">MongoClient.connect(db.url, (err, database) =&gt; &#123;</span><br><span class="line">  <span class="keyword">if</span> (err) <span class="keyword">return</span> <span class="built_in">console</span>.log(err)</span><br><span class="line">  <span class="built_in">require</span>(‘./app/routes’)(app, database);</span><br><span class="line">  app.listen(port, () =&gt; &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'We are live on '</span> + port);</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></p>
+<h3 id="Создание-текстового-документа"><a href="#Создание-текстового-документа" class="headerlink" title="Создание текстового документа"></a>Создание текстового документа</h3><p>В app/routes/note_routes.js пишем:<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">module</span>.exports = <span class="function"><span class="keyword">function</span>(<span class="params">app, db</span>) </span>&#123; &#125;;</span><br></pre></td></tr></table></figure></p>
+<p>В app/routes/index.js:<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> noteRoutes = <span class="built_in">require</span>(<span class="string">'./note_routes'</span>);</span><br><span class="line"> <span class="built_in">module</span>.exports = <span class="function"><span class="keyword">function</span>(<span class="params">app, db</span>) </span>&#123;</span><br><span class="line">  app.post(<span class="string">'/notes'</span>, (req, res) =&gt; &#123;</span><br><span class="line">    <span class="keyword">const</span> note = &#123; <span class="attr">text</span>: req.body.body, <span class="attr">title</span>: req.body.title &#125;;</span><br><span class="line">    db.collection(<span class="string">'notes'</span>).insert(note, (err, result) =&gt; &#123;</span><br><span class="line">      <span class="keyword">if</span> (err) &#123; </span><br><span class="line">        res.send(&#123; <span class="string">'error'</span>: <span class="string">'An error has occurred'</span> &#125;); </span><br><span class="line">      &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        res.send(result.ops[<span class="number">0</span>]);</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;);</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
+<h3 id="Чтение-документа"><a href="#Чтение-документа" class="headerlink" title="Чтение документа"></a>Чтение документа</h3><p>По аналогии с app.post, пишем другой метод:<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">app.get(<span class="string">'/notes/:id'</span>, (req, res) =&gt; &#123;</span><br><span class="line">    <span class="keyword">const</span> id = req.params.id;</span><br><span class="line">    <span class="keyword">const</span> details = &#123; <span class="string">'_id'</span>: <span class="keyword">new</span> ObjectID(id) &#125;;</span><br><span class="line">    db.collection(<span class="string">'notes'</span>).findOne(details, (err, item) =&gt; &#123;</span><br><span class="line">      <span class="keyword">if</span> (err) &#123;</span><br><span class="line">        res.send(&#123;<span class="string">'error'</span>:<span class="string">'An error has occurred'</span>&#125;);</span><br><span class="line">      &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        res.send(item);</span><br><span class="line">      &#125; </span><br><span class="line">    &#125;);</span><br><span class="line">  &#125;);</span><br></pre></td></tr></table></figure></p>
+<h3 id="Удаление-документа"><a href="#Удаление-документа" class="headerlink" title="Удаление документа"></a>Удаление документа</h3><p>По аналогии с app.post, пишем другой метод:<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">app.delete(<span class="string">'/notes/:id'</span>, (req, res) =&gt; &#123;</span><br><span class="line">    <span class="keyword">const</span> id = req.params.id;</span><br><span class="line">    <span class="keyword">const</span> details = &#123; <span class="string">'_id'</span>: <span class="keyword">new</span> ObjectID(id) &#125;;</span><br><span class="line">    db.collection(<span class="string">'notes'</span>).remove(details, (err, item) =&gt; &#123;</span><br><span class="line">      <span class="keyword">if</span> (err) &#123;</span><br><span class="line">        res.send(&#123;<span class="string">'error'</span>:<span class="string">'An error has occurred'</span>&#125;);</span><br><span class="line">      &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        res.send(<span class="string">'Note '</span> + id + <span class="string">' deleted!'</span>);</span><br><span class="line">      &#125; </span><br><span class="line">    &#125;);</span><br><span class="line">  &#125;);</span><br></pre></td></tr></table></figure></p>
+<h3 id="Обновление-документа"><a href="#Обновление-документа" class="headerlink" title="Обновление документа"></a>Обновление документа</h3><p>По аналогии с app.post, пишем другой метод:<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">app.put (<span class="string">'/notes/:id'</span>, (req, res) =&gt; &#123;</span><br><span class="line">    <span class="keyword">const</span> id = req.params.id;</span><br><span class="line">    <span class="keyword">const</span> details = &#123; <span class="string">'_id'</span>: <span class="keyword">new</span> ObjectID(id) &#125;;</span><br><span class="line">    <span class="keyword">const</span> note = &#123; <span class="attr">text</span>: req.body.body, <span class="attr">title</span>: req.body.title &#125;;</span><br><span class="line">    db.collection(<span class="string">'notes'</span>).update(details, note, (err, result) =&gt; &#123;</span><br><span class="line">      <span class="keyword">if</span> (err) &#123;</span><br><span class="line">          res.send(&#123;<span class="string">'error'</span>:<span class="string">'An error has occurred'</span>&#125;);</span><br><span class="line">      &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">          res.send(note);</span><br><span class="line">      &#125; </span><br><span class="line">    &#125;);</span><br><span class="line">  &#125;);</span><br></pre></td></tr></table></figure></p>
+<h3 id="Тестирование"><a href="#Тестирование" class="headerlink" title="Тестирование"></a>Тестирование</h3><p>Postman позволяет указывать тип запроса (get, post, put, update), адрес и порт для запроса, а также добавлять в тело запроса различные параметры, например, пустой POST-запрос на 8080 порт.<br>По выполнении запроса, мы видим ответ сервера</p>
+<p><img src="https://image.ibb.co/dHTQMH/1.png" alt="alt-текст"><br>Пример POST-запроса с заполненным телом:</p>
+<p><img src="https://image.ibb.co/icVGTx/2.png" alt="alt-текст"><br>Пусть сервер выводит запрос в консоль сервера, тогда мы увидим:</p>
+<p><img src="https://image.ibb.co/n4YQMH/3.png" alt="alt-текст"></p>
+<h3 id="Ссылки"><a href="#Ссылки" class="headerlink" title="Ссылки"></a>Ссылки</h3><p>Для установки node<br><a href="https://nodejs.org/en/download/package-manager/#enterprise-linux-and-fedora" target="_blank" rel="noopener">https://nodejs.org/en/download/package-manager/#enterprise-linux-and-fedora</a><br>Для установки postman<br><a href="https://www.getpostman.com/" target="_blank" rel="noopener">https://www.getpostman.com/</a><br>Аналогичные статьи</p>
+<ol>
+<li><a href="https://medium.freecodecamp.com/building-a-simple-node-js-api-in-under-30-minutes-a07ea9e390d2#.eybmlr1g9" target="_blank" rel="noopener">https://medium.freecodecamp.com/building-a-simple-node-js-api-in-under-30-minutes-a07ea9e390d2#.eybmlr1g9</a></li>
+<li><a href="https://habrahabr.ru/company/ruvds/blog/321104/" target="_blank" rel="noopener">https://habrahabr.ru/company/ruvds/blog/321104/</a> </li>
+<li><a href="https://loftblog.ru/material/4-podklyuchenie-bazy-dannyx-k-express/" target="_blank" rel="noopener">https://loftblog.ru/material/4-podklyuchenie-bazy-dannyx-k-express/</a></li>
+<li><a href="http://coenraets.org/blog/2012/10/creating-a-rest-api-using-node-js-express-and-mongodb/" target="_blank" rel="noopener">http://coenraets.org/blog/2012/10/creating-a-rest-api-using-node-js-express-and-mongodb/</a></li>
+</ol>
+
+  </div>
+  
+    <div class="tags">
+    <span><i class="fa fa-tags"></i> Теги</span>
+      
+        <ul class="post-tag-list"><li class="post-tag-list-item"><a class="post-tag-list-link" href="/Docs/tags/Koa/">Koa</a></li><li class="post-tag-list-item"><a class="post-tag-list-link" href="/Docs/tags/MongoDB/">MongoDB</a></li><li class="post-tag-list-item"><a class="post-tag-list-link" href="/Docs/tags/Node/">Node</a></li></ul>
+      
+    </div>
+  
+
+</article>
+
+<!-- Comments -->
+
+<!-- End Comments --></section>
+    <footer id="footer" role="contentinfo">
+    <div>&copy; 2018 <a href="/">Existend Docs</a>.
+    Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>. Designed by <a href="http://rainylog.com" target="_blank">Rainy.</a>
+	</div>
+</footer><!-- end #footer -->
+
+  </div>
+  <script src="/Docs/lib/fancybox/dist/jquery.fancybox.min.js"></script>
+
+  <script src="/Docs/js/helper.js"></script>
+  <script src="/Docs/js/_third-party/gitment.js"></script>
+</body>
+</html>
