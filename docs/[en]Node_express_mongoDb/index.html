@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>Instruction for creating a server app on Nodejs, Express and MongoDB | Existend Docs</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="Based on simple example of app in which we can create, read, update and delete simple text documents Component installationThe official site of nodejs (https://nodejs.org/) has detailed installation">
+<meta name="keywords" content="Node,Express,MongoDB">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Instruction for creating a server app on Nodejs, Express and MongoDB">
+<meta property="og:url" content="https://kir9819.github.io/Docs/docs/[en]Node_express_mongoDb/index.html">
+<meta property="og:site_name" content="Existend Docs">
+<meta property="og:description" content="Based on simple example of app in which we can create, read, update and delete simple text documents Component installationThe official site of nodejs (https://nodejs.org/) has detailed installation">
+<meta property="og:locale" content="ru">
+<meta property="og:image" content="https://image.ibb.co/dHTQMH/1.png">
+<meta property="og:image" content="https://image.ibb.co/icVGTx/2.png">
+<meta property="og:image" content="https://image.ibb.co/n4YQMH/3.png">
+<meta property="og:updated_time" content="2018-02-10T18:06:41.453Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Instruction for creating a server app on Nodejs, Express and MongoDB">
+<meta name="twitter:description" content="Based on simple example of app in which we can create, read, update and delete simple text documents Component installationThe official site of nodejs (https://nodejs.org/) has detailed installation">
+<meta name="twitter:image" content="https://image.ibb.co/dHTQMH/1.png">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/Docs/css/style.css">
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/Docs/" id="logo">Existend Docs</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/Docs/">Домашняя страница</a>
+        
+          <a class="main-nav-link" href="/Docs/archives">Все файлы</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+        <a id="nav-search-btn" class="nav-icon" title="Поиск"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://kir9819.github.io/Docs"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-[en]Node_express_mongoDb" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/Docs/docs/[en]Node_express_mongoDb/" class="article-date">
+  <time datetime="2018-02-09T18:54:28.000Z" itemprop="datePublished">2018-02-09</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/Docs/categories/EN/">EN</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Instruction for creating a server app on Nodejs, Express and MongoDB
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <!-- # Instruction for creating a server app on Nodejs, Express and MongoDB -->
+<hr>
+<p>Based on simple example of app in which we can create, read, update and delete simple text documents</p>
+<h3 id="Component-installation"><a href="#Component-installation" class="headerlink" title="Component installation"></a>Component installation</h3><p>The official site of nodejs (<a href="https://nodejs.org/" target="_blank" rel="noopener">https://nodejs.org/</a>) has detailed installation instructions</p>
+<p>For centos:</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ curl —silent —location https://rpm.nodesource.com/setup_9.x | sudo bash -</span><br><span class="line">$ sudo yum -y install nodejs</span><br><span class="line">$ sudo yum install gcc-c++ make</span><br></pre></td></tr></table></figure>
+<p>For Ubuntu:<br><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ curl -sL https://deb.nodesource.com/setup_9.x | sudo -E bash -</span><br><span class="line">$ sudo apt-get install -y nodejs</span><br><span class="line">$ sudo apt-get install -y build-essential</span><br></pre></td></tr></table></figure></p>
+<p>Organize a folder for the project and execute a command for project initialization in it:<br><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm init</span><br></pre></td></tr></table></figure></p>
+<h4 id="Answer-the-following-questions"><a href="#Answer-the-following-questions" class="headerlink" title="Answer the following questions"></a>Answer the following questions</h4><ul>
+<li>Project name</li>
+<li>Project version</li>
+<li>Description</li>
+<li>Entry point</li>
+<li>Testing team</li>
+<li>Githhab’s repository</li>
+<li>Project keywords</li>
+<li>Author</li>
+<li>License</li>
+</ul>
+<h5 id="Confirm-and-you’ll-see-file-package-json-describing-the-project"><a href="#Confirm-and-you’ll-see-file-package-json-describing-the-project" class="headerlink" title="Confirm and you’ll see file package.json, describing the project."></a>Confirm and you’ll see file package.json, describing the project.</h5><p>Now install the remaining components: Express and MongoDB (the latest version of the plugin does not work correctly with the database, so it’s better to install an earlier one):<br><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm install --save express mongodb@2.2.16</span><br></pre></td></tr></table></figure></p>
+<p>Also, for the convenience of handling url-encoded requests, install the body-parser:<br><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm install --save body-parser</span><br></pre></td></tr></table></figure></p>
+<p>And for the convenience of development, it is better to install Nodemon, which will restart the server every time when any files change:<br><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm install --save-dev nodemon</span><br></pre></td></tr></table></figure></p>
+<p>To attach Nodemon, you need to add the following to package.json:<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="string">"name"</span>: <span class="string">"notable"</span>,</span><br><span class="line">  <span class="string">"version"</span>: <span class="string">"1.0.0"</span>,</span><br><span class="line">  <span class="string">"description"</span>: <span class="string">""</span>,</span><br><span class="line">  <span class="string">"main"</span>: <span class="string">"index.js"</span>,</span><br><span class="line">  <span class="string">"scripts"</span>: &#123;</span><br><span class="line">    <span class="string">"test"</span>: <span class="string">"echo \"Error^ no test specified\" &amp;&amp; exit 1"</span>,</span><br><span class="line">    <span class="string">"dev"</span>: <span class="string">"nodemon server.js"</span></span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="string">"author"</span>: <span class="string">""</span>,</span><br><span class="line">  <span class="string">"license"</span>: <span class="string">"ISC"</span>,</span><br><span class="line">  <span class="string">"dependencies"</span>: &#123;</span><br><span class="line">    <span class="string">"body-parser"</span>: <span class="string">"^1.18.2"</span>,</span><br><span class="line">    <span class="string">"express"</span>: <span class="string">"^4.16.2"</span>,</span><br><span class="line">    <span class="string">"mongodb"</span>: <span class="string">"^2.2.16"</span></span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="string">"devDependencies"</span>: &#123;</span><br><span class="line">    <span class="string">"nodemon"</span>: <span class="string">"^1.14.2"</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>To be able to test app install Postman(<a href="https://www.getpostman.com/" target="_blank" rel="noopener">https://www.getpostman.com/</a>), which will simulate requests </p>
+<h3 id="Starting-the-server"><a href="#Starting-the-server" class="headerlink" title="Starting the server"></a>Starting the server</h3><p>Create file server.js in root directory, in which we write dependencies, specify the port and start listening:<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> express        = <span class="built_in">require</span>(<span class="string">'express'</span>);</span><br><span class="line"><span class="keyword">const</span> MongoClient    = <span class="built_in">require</span>(<span class="string">'mongodb'</span>).MongoClient;</span><br><span class="line"><span class="keyword">const</span> bodyParser     = <span class="built_in">require</span>(<span class="string">'body-parser'</span>);</span><br><span class="line"><span class="keyword">const</span> app            = express();</span><br><span class="line"><span class="keyword">const</span> port = <span class="number">8080</span>;</span><br><span class="line">app.listen(port, () =&gt; &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'We are live on '</span> + port);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></p>
+<p>Run the server:<br><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm run dev</span><br></pre></td></tr></table></figure></p>
+<p>In the terminal you can now see the message “We are live on port 8080”</p>
+<h3 id="Structure-of-project"><a href="#Structure-of-project" class="headerlink" title="Structure of project"></a>Structure of project</h3><p>For more convenient structuring of the project it is necessary to create an ‘app’ folder, in it we create the ‘routes’ folder, and in it - files ‘index.js’ and ‘note_routes.js’</p>
+<p>So, the structure looks like this: in app/ routes - our route handlers, in the node_modules folder - the modules of our project, and server.js directly describes our server.</p>
+<h3 id="Connecting-the-DB"><a href="#Connecting-the-DB" class="headerlink" title="Connecting the DB"></a>Connecting the DB</h3><p>Add the ‘config’ directory to the project root, create a ‘db.js’. file in it.<br>In the file db.js write the following:<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">  url : <span class="string">'mongodb://localhost:27017/&lt;yourDataBase&gt;'</span> </span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
+<p>In the file ‘server.js’ we add:<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> express        = <span class="built_in">require</span>(<span class="string">'express'</span>);</span><br><span class="line"><span class="keyword">const</span> MongoClient    = <span class="built_in">require</span>(<span class="string">'mongodb'</span>).MongoClient;</span><br><span class="line"><span class="keyword">const</span> bodyParser     = <span class="built_in">require</span>(<span class="string">'body-parser'</span>);</span><br><span class="line"><span class="keyword">const</span> db = <span class="built_in">require</span>(‘./config/db’);</span><br><span class="line"><span class="keyword">const</span> app            = express();</span><br><span class="line"><span class="keyword">const</span> port = <span class="number">8080</span>;</span><br><span class="line">app.use(bodyParser.urlencoded(&#123; <span class="attr">extended</span>: <span class="literal">true</span> &#125;));</span><br><span class="line">MongoClient.connect(db.url, (err, database) =&gt; &#123;</span><br><span class="line">  <span class="keyword">if</span> (err) <span class="keyword">return</span> <span class="built_in">console</span>.log(err)</span><br><span class="line">  <span class="built_in">require</span>(‘./app/routes’)(app, database);</span><br><span class="line">  app.listen(port, () =&gt; &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'We are live on '</span> + port);</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></p>
+<h3 id="Creating-a-text-document"><a href="#Creating-a-text-document" class="headerlink" title="Creating a text document"></a>Creating a text document</h3><p>In app/routes/note_routes.js we write:<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">module</span>.exports = <span class="function"><span class="keyword">function</span>(<span class="params">app, db</span>) </span>&#123; &#125;;</span><br></pre></td></tr></table></figure></p>
+<p>In app/routes/index.js:<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> noteRoutes = <span class="built_in">require</span>(<span class="string">'./note_routes'</span>);</span><br><span class="line"> <span class="built_in">module</span>.exports = <span class="function"><span class="keyword">function</span>(<span class="params">app, db</span>) </span>&#123;</span><br><span class="line">  app.post(<span class="string">'/notes'</span>, (req, res) =&gt; &#123;</span><br><span class="line">    <span class="keyword">const</span> note = &#123; <span class="attr">text</span>: req.body.body, <span class="attr">title</span>: req.body.title &#125;;</span><br><span class="line">    db.collection(<span class="string">'notes'</span>).insert(note, (err, result) =&gt; &#123;</span><br><span class="line">      <span class="keyword">if</span> (err) &#123; </span><br><span class="line">        res.send(&#123; <span class="string">'error'</span>: <span class="string">'An error has occurred'</span> &#125;); </span><br><span class="line">      &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        res.send(result.ops[<span class="number">0</span>]);</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;);</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
+<h3 id="Reading-a-text-document"><a href="#Reading-a-text-document" class="headerlink" title="Reading a text document"></a>Reading a text document</h3><p>By analogy with app.post, we write another method:<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">app.get(<span class="string">'/notes/:id'</span>, (req, res) =&gt; &#123;</span><br><span class="line">    <span class="keyword">const</span> id = req.params.id;</span><br><span class="line">    <span class="keyword">const</span> details = &#123; <span class="string">'_id'</span>: <span class="keyword">new</span> ObjectID(id) &#125;;</span><br><span class="line">    db.collection(<span class="string">'notes'</span>).findOne(details, (err, item) =&gt; &#123;</span><br><span class="line">      <span class="keyword">if</span> (err) &#123;</span><br><span class="line">        res.send(&#123;<span class="string">'error'</span>:<span class="string">'An error has occurred'</span>&#125;);</span><br><span class="line">      &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        res.send(item);</span><br><span class="line">      &#125; </span><br><span class="line">    &#125;);</span><br><span class="line">  &#125;);</span><br></pre></td></tr></table></figure></p>
+<h3 id="Deleting-of-text-document"><a href="#Deleting-of-text-document" class="headerlink" title="Deleting of text document"></a>Deleting of text document</h3><p>By analogy with app.post, we write another method:<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">app.delete(<span class="string">'/notes/:id'</span>, (req, res) =&gt; &#123;</span><br><span class="line">    <span class="keyword">const</span> id = req.params.id;</span><br><span class="line">    <span class="keyword">const</span> details = &#123; <span class="string">'_id'</span>: <span class="keyword">new</span> ObjectID(id) &#125;;</span><br><span class="line">    db.collection(<span class="string">'notes'</span>).remove(details, (err, item) =&gt; &#123;</span><br><span class="line">      <span class="keyword">if</span> (err) &#123;</span><br><span class="line">        res.send(&#123;<span class="string">'error'</span>:<span class="string">'An error has occurred'</span>&#125;);</span><br><span class="line">      &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        res.send(<span class="string">'Note '</span> + id + <span class="string">' deleted!'</span>);</span><br><span class="line">      &#125; </span><br><span class="line">    &#125;);</span><br><span class="line">  &#125;);</span><br></pre></td></tr></table></figure></p>
+<h3 id="Updating-of-text-document"><a href="#Updating-of-text-document" class="headerlink" title="Updating of text document"></a>Updating of text document</h3><p>By analogy with app.post, we write another method:<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">app.put (<span class="string">'/notes/:id'</span>, (req, res) =&gt; &#123;</span><br><span class="line">    <span class="keyword">const</span> id = req.params.id;</span><br><span class="line">    <span class="keyword">const</span> details = &#123; <span class="string">'_id'</span>: <span class="keyword">new</span> ObjectID(id) &#125;;</span><br><span class="line">    <span class="keyword">const</span> note = &#123; <span class="attr">text</span>: req.body.body, <span class="attr">title</span>: req.body.title &#125;;</span><br><span class="line">    db.collection(<span class="string">'notes'</span>).update(details, note, (err, result) =&gt; &#123;</span><br><span class="line">      <span class="keyword">if</span> (err) &#123;</span><br><span class="line">          res.send(&#123;<span class="string">'error'</span>:<span class="string">'An error has occurred'</span>&#125;);</span><br><span class="line">      &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">          res.send(note);</span><br><span class="line">      &#125; </span><br><span class="line">    &#125;);</span><br><span class="line">  &#125;);</span><br></pre></td></tr></table></figure></p>
+<h3 id="Testing-with-Postman"><a href="#Testing-with-Postman" class="headerlink" title="Testing with Postman"></a>Testing with Postman</h3><p>Postman allows specify the type of request (get, post, put, update), it’s address and port and add various parameters to the request body, for example, an empty POST request on the 8080 port.<br>Upon execution of the request, we see the server response.</p>
+<p><img src="https://image.ibb.co/dHTQMH/1.png" alt="alt-текст"><br>Example of a POST request with a filled body:</p>
+<p><img src="https://image.ibb.co/icVGTx/2.png" alt="alt-текст"><br>Let the server print the request to the server console, then we’ll see:</p>
+<p><img src="https://image.ibb.co/n4YQMH/3.png" alt="alt-текст"></p>
+<h3 id="Links"><a href="#Links" class="headerlink" title="Links"></a>Links</h3><p>Node installing<br><a href="https://nodejs.org/en/download/package-manager/#enterprise-linux-and-fedora" target="_blank" rel="noopener">https://nodejs.org/en/download/package-manager/#enterprise-linux-and-fedora</a><br>Postman installing<br><a href="https://www.getpostman.com/" target="_blank" rel="noopener">https://www.getpostman.com/</a><br>Similar articles</p>
+<ol>
+<li><a href="https://medium.freecodecamp.com/building-a-simple-node-js-api-in-under-30-minutes-a07ea9e390d2#.eybmlr1g9" target="_blank" rel="noopener">https://medium.freecodecamp.com/building-a-simple-node-js-api-in-under-30-minutes-a07ea9e390d2#.eybmlr1g9</a></li>
+<li><a href="https://habrahabr.ru/company/ruvds/blog/321104/" target="_blank" rel="noopener">https://habrahabr.ru/company/ruvds/blog/321104/</a> </li>
+<li><a href="https://loftblog.ru/material/4-podklyuchenie-bazy-dannyx-k-express/" target="_blank" rel="noopener">https://loftblog.ru/material/4-podklyuchenie-bazy-dannyx-k-express/</a></li>
+<li><a href="http://coenraets.org/blog/2012/10/creating-a-rest-api-using-node-js-express-and-mongodb/" target="_blank" rel="noopener">http://coenraets.org/blog/2012/10/creating-a-rest-api-using-node-js-express-and-mongodb/</a></li>
+</ol>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://kir9819.github.io/Docs/docs/[en]Node_express_mongoDb/" data-id="cjdhp1yy400006k8dml5z656y" class="article-share-link">Поделиться</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/Docs/tags/Express/">Express</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/Docs/tags/MongoDB/">MongoDB</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/Docs/tags/Node/">Node</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/Docs/docs/[ru]frameworks_node/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Следующий</strong>
+      <div class="article-nav-title">
+        
+          Обзор фреймворков для создания серверного приложения на nodejs
+        
+      </div>
+    </a>
+  
+  
+    <a href="/Docs/docs/[en]node_express/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Предыдущий</strong>
+      <div class="article-nav-title">Instructions for creating a server application on nodejs + express</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Категории</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/Docs/categories/EN/">EN</a></li><li class="category-list-item"><a class="category-list-link" href="/Docs/categories/RU/">RU</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Метки</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/Docs/tags/Express/">Express</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Docs/tags/Koa/">Koa</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Docs/tags/MongoDB/">MongoDB</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Docs/tags/Node/">Node</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Docs/tags/PostgreSQL/">PostgreSQL</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Облако меток</h3>
+    <div class="widget tagcloud">
+      <a href="/Docs/tags/Express/" style="font-size: 15px;">Express</a> <a href="/Docs/tags/Koa/" style="font-size: 15px;">Koa</a> <a href="/Docs/tags/MongoDB/" style="font-size: 10px;">MongoDB</a> <a href="/Docs/tags/Node/" style="font-size: 20px;">Node</a> <a href="/Docs/tags/PostgreSQL/" style="font-size: 10px;">PostgreSQL</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Архив</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/Docs/archives/2018/02/">февраль 2018</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Недавние записи</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/Docs/docs/[ru]frameworks_node/">Обзор фреймворков для создания серверного приложения на nodejs</a>
+          </li>
+        
+          <li>
+            <a href="/Docs/docs/[en]Node_express_mongoDb/">Instruction for creating a server app on Nodejs, Express and MongoDB</a>
+          </li>
+        
+          <li>
+            <a href="/Docs/docs/[en]node_express/">Instructions for creating a server application on nodejs + express</a>
+          </li>
+        
+          <li>
+            <a href="/Docs/docs/[en]node_express_postgresql/">Creating simple aplication using Node.js, Express and PostgreSQL.</a>
+          </li>
+        
+          <li>
+            <a href="/Docs/docs/[en]node_koa/">Simple application Node.js + Koa</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2018 Kirill Aniskin<br>
+      Создано с помощью <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/Docs/" class="mobile-nav-link">Домашняя страница</a>
+  
+    <a href="/Docs/archives" class="mobile-nav-link">Все файлы</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/Docs/fancybox/jquery.fancybox.css">
+  <script src="/Docs/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/Docs/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>

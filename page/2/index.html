@@ -40,9 +40,9 @@
       <nav id="main-nav">
         <a id="main-nav-toggle" class="nav-icon"></a>
         
-          <a class="main-nav-link" href="/Docs/">Home</a>
+          <a class="main-nav-link" href="/Docs/">Домашняя страница</a>
         
-          <a class="main-nav-link" href="/Docs/archives">Archives</a>
+          <a class="main-nav-link" href="/Docs/archives">Все файлы</a>
         
       </nav>
       <nav id="sub-nav">
@@ -58,113 +58,9 @@
       <div class="outer">
         <section id="main">
   
-    <article id="post-[ru]node_express_postgresql" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/Docs/2018/02/09/[ru]node_express_postgresql/" class="article-date">
-  <time datetime="2018-02-09T18:54:28.000Z" itemprop="datePublished">2018-02-09</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/Docs/categories/RU/">RU</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/Docs/2018/02/09/[ru]node_express_postgresql/">Инструкция по созданию серверного приложения на nodejs + express + postgresql</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <!-- # Создание простого серверного приложения с использованием Node.js, Express and PostgreSQL. -->
-<h3 id="Установка-Node-js"><a href="#Установка-Node-js" class="headerlink" title="Установка Node.js"></a>Установка Node.js</h3><p><strong>Windows:</strong></p>
-<p>Для того чтобы начать, зайдите на страницу загрузки Node.js (<a href="https://nodejs.org/en/download/" target="_blank" rel="noopener">https://nodejs.org/en/download/</a>). Выберите установщик, который вы хотите скачать и установить.</p>
-<p>После запускаем установщик и пошагово завершаем установку.</p>
-<p><strong>CentOS:</strong></p>
-<p>Для установки Node.js нужно подключиться к серверу по протоколу SSH. После этого, нужно установить последнюю версию .nodejs из репозиториев. Для этого:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">$ yum update</span><br><span class="line"></span><br><span class="line">//Устанавливаем группу Development Tools</span><br><span class="line">$yum -y groupinstall &quot;Development Tools&quot;</span><br><span class="line"></span><br><span class="line">//Вводим команду для подключения к серверу и создания нескольких параллельных сессий</span><br><span class="line">$ yum -y install screen</span><br><span class="line"></span><br><span class="line">//Переходим в папку /usr/src и загружаем архив с Node.js</span><br><span class="line">$ cd /usr/src</span><br><span class="line">$ wget http://nodejs.org/dist/v0.10.4/node-v0.10.4.tar.gz</span><br><span class="line"></span><br><span class="line">//Извлекаем файлы из архива и помещаем в каталог</span><br><span class="line">$ tar zxf node-v0.10.4.tar.gz</span><br><span class="line">$ cd node-v0.10.4</span><br><span class="line"></span><br><span class="line">//Cоздаем установочный файл и запускаем</span><br><span class="line">$ make </span><br><span class="line">$ make install</span><br></pre></td></tr></table></figure>
-<p>Node.js установлен. По умолчанию его двоичный код лежит в /usr/local/bin/node.</p>
-<p><strong>Ubuntu</strong></p>
-<p>Для установки <em>Node</em> и <em>npm</em> при помощи <em>apt-get</em>, запустите следующие команды:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ sudo apt-get update  </span><br><span class="line">$ sudo apt-get install nodejs  </span><br><span class="line">$ sudo ln -s /usr/bin/nodejs /usr/bin/node  </span><br><span class="line">$ sudo apt-get install npm</span><br></pre></td></tr></table></figure>
-<p>Если вы все еще хотите использовать <em>apt-get</em>, но вам необходима наиболее свежая версия <em>Node</em>, стоит воспользоваться иным методом.</p>
-<p>Он очень похож на предыдущий, но мы будем запускать скрипт, указывающий менеджеру пакетов, где хранится последняя версия.</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">$ curl -sL https://deb.nodesource.com/setup_5.x | sudo -E bash -  </span><br><span class="line">$ sudo apt-get install -y nodejs  </span><br><span class="line">$ sudo ln -s /usr/bin/nodejs /usr/bin/node </span><br><span class="line"></span><br><span class="line">``` </span><br><span class="line"></span><br><span class="line">Чтобы проверить, что у вас установлена Node.js и проверить версию, выполните:</span><br></pre></td></tr></table></figure>
-<p>$ node –version</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">Чтобы начать работу, выполните в командной строке:</span><br></pre></td></tr></table></figure>
-<p>$ node<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">### Установка зависимостей.</span><br><span class="line"></span><br><span class="line">Вы можете интерактивно генерировать файл *package.json* с помощью команды *npm init* в терминале.</span><br></pre></td></tr></table></figure></p>
-<p>$ npm init</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">После запуска команды вас попросят ввести некоторые данные. После их получения *package.json* будет автоматически сгенерирован и помещен в папку вашего приложения.</span><br><span class="line"></span><br><span class="line">Если какие-либо зависимости не установлены, то добавить их в своё приложение можно следующей командой:</span><br></pre></td></tr></table></figure>
-<p>npm install[module name] –save</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br><span class="line">### Установка PostgreSQL.</span><br><span class="line"></span><br><span class="line">PostgreSQL является очень популярным сервером баз данных, поэтому присутствует в официальных репозиториях Ubuntu. Однако в PPA разработчиков PostgreSQL можно найти самую свежую версию. </span><br><span class="line"></span><br><span class="line">**Windows**</span><br><span class="line"></span><br><span class="line">Скачать PostgreSQL можно со страницы загрузки официального сайта вот здесь - http://www.postgresql.org/download/windows/</span><br><span class="line"></span><br><span class="line">Загрузить установщик, выбрав версию, подходящую под разрядность системы и следовать шагам, предлагаемым установщиком.</span><br><span class="line"></span><br><span class="line">**CentOS**</span><br><span class="line"></span><br><span class="line">Для установки самой свежей версии необходимо добавить официальный репозиторий следующей командой:</span><br></pre></td></tr></table></figure>
-<p>$  sudo rpm -Uvh <a href="http://yum.postgresql.org/9.5/redhat/rhel-7-x86_64/pgdg-centos95-9.5-2.noarch.rpm" target="_blank" rel="noopener">http://yum.postgresql.org/9.5/redhat/rhel-7-x86_64/pgdg-centos95-9.5-2.noarch.rpm</a></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">После того как репозиторий будет добавлен к вашей системе вы можете перейти к установке программы. </span><br><span class="line">Установка Postgresql CentOS выполняется командой:</span><br></pre></td></tr></table></figure>
-<p> $ sudo yum install postgresql96-server postgresql96</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Сразу после установки Postgresql сервер еще не готов к использованию, нужно инициализировать необходимые базы данных. Для этого выполните:</span><br></pre></td></tr></table></figure>
-<p> $  /usr/pgsql-9.6/bin/postgresql96-setup initdb<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">**Ubuntu:**</span><br><span class="line"></span><br><span class="line">Добавьте репозиторий PostgreSQL в системный список источников:</span><br></pre></td></tr></table></figure></p>
-<p>$ sudo sh -c ‘echo “deb <a href="http://apt.postgresql.org/pub/repos/apt/" target="_blank" rel="noopener">http://apt.postgresql.org/pub/repos/apt/</a> <code>lsb_release -cs</code>-pgdg main” &gt;&gt; /etc/apt/sources.list.d/pgdg.list’</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">и добавьте для него ключ:</span><br></pre></td></tr></table></figure>
-<p>$ wget -q <a href="https://www.postgresql.org/media/keys/ACCC4CF8.asc" target="_blank" rel="noopener">https://www.postgresql.org/media/keys/ACCC4CF8.asc</a> -O - | sudo apt-key add -</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Это позволит при обновлении пакетов получать наиболее свежие версии.</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>initdb -U postgres -D data<br>pg_ctl -D data start<br>psql -U postgres<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">Здесь *postgres* - это имя пользователя, лучше его указать по умолчанию, для начала, а *data* - директория, где будут храниться базы, можно указать любую удобную.  </span><br><span class="line">После чего *pg_ctl* запускает PostgreSQL (с указанием директории с базами).</span><br><span class="line"></span><br><span class="line">По окончанию, мы должны увидеть приветственную консоль:</span><br></pre></td></tr></table></figure></p>
-</blockquote>
-<p>postgres=#<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">### Установка Express.</span><br><span class="line"></span><br><span class="line">Чтобы установить Express и добавить в список зависимостей, необходимо перейти в папку с проектом и оттуда запустить команду:</span><br></pre></td></tr></table></figure></p>
-<p>$ npm install express –save</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">### Создание простого серверного приложения.</span><br><span class="line"></span><br><span class="line">Создайте директорию, где будет храниться ваш проект.</span><br></pre></td></tr></table></figure>
-<p>$ mkdir nodejs-express-postgresql/<br>$ cd nodejs-express-postgresql/</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Теперь необходимо иниицировать наше приложение:</span><br></pre></td></tr></table></figure>
-<p>$ npm init -y</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">Эта команда создаст *package.json* со стандартными настройками конфигурации.</span><br><span class="line"></span><br><span class="line">Теперь создадим файл с нашим приложением.</span><br></pre></td></tr></table></figure>
-<p>$ touch app.js</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">Теперь набоходимо подключить и настроить Express.</span><br></pre></td></tr></table></figure>
-<p>const express = require(‘express’);<br>const bodyParser = require(‘body-parser’);</p>
-<p>// Set up the express app<br>const app = express();</p>
-<p>// Setup a default catch-all route that sends back a welcome message in JSON format.<br>app.get(‘*’, (req, res) =&gt; res.status(200).send({<br>  message: ‘Welcome, my frined.’,<br>}));</p>
-<p>module.exports = app;</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">Теперь если мы запустим наш сервер</span><br></pre></td></tr></table></figure>
-<p>npm run start:dev</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">И перейдем по http://localhost:8000/, то у нас появится сообщение *Welcome, my friend.*</span><br><span class="line"></span><br><span class="line">Теперь необходимо подключить нашу базу данных.</span><br><span class="line">Мы будем сразу же использовать пул, а не отдельные подключения. Это распространенная практика, тем более для PostgreSQL. Пул позволяет хранить несколько соединений, тем самым не тратя время на их создание и не заниматься их менеджементом.</span><br><span class="line"></span><br><span class="line">Сперва настроим зависимость, потом добавим подключение к нашей базе.</span><br></pre></td></tr></table></figure>
-<p>const  Pool  = require(‘pg’).Pool;</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">По умолчанию в *PostgreSQL* нет пароля, а стандартным портом является - 5432.</span><br></pre></td></tr></table></figure>
-<p>const config = {<br>    user: ‘postgres’,<br>    host: ‘localhost’,<br>    database: ‘users’,<br>    password: ‘’, </p>
-<p>  };</p>
-<p>  const pool = new Pool(config);</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">Теперь только остаётся сделать нашу функцию, которая будет показывать все записи из таблицы *users*.</span><br></pre></td></tr></table></figure>
-<p>(async () =&gt; {<br>    const client = await pool.connect()<br>    try {<br>      const res = await pool.query(“select * from users”);<br>      console.log(res.rows[0])<br>    } finally {<br>      client.release()<br>    }<br>  })().catch(e =&gt; console.log(e.stack))</p>
-<p>  ```</p>
-<p>Теперь при перезагрузке нашего сервера можно будет увидеть результат.</p>
-<h3 id="Материалы-и-полезные-ссылки-используемвые-в-работе"><a href="#Материалы-и-полезные-ссылки-используемвые-в-работе" class="headerlink" title="Материалы и полезные ссылки, используемвые в работе."></a>Материалы и полезные ссылки, используемвые в работе.</h3><p><strong>PostgreSQL:</strong><br>    <a href="https://node-postgres.com/" target="_blank" rel="noopener">https://node-postgres.com/</a><br>    <a href="http://expressjs.com/ru/guide/database-integration.html" target="_blank" rel="noopener">http://expressjs.com/ru/guide/database-integration.html</a></p>
-<p><strong>Node.js:</strong><br>    <a href="https://nodejs.org/en/" target="_blank" rel="noopener">https://nodejs.org/en/</a><br>    <a href="https://medium.com/devschacht/node-hero-chapter-1-239f7afeb1d1" target="_blank" rel="noopener">https://medium.com/devschacht/node-hero-chapter-1-239f7afeb1d1</a><br>    <a href="https://node-postgres.com/features/pooling" target="_blank" rel="noopener">https://node-postgres.com/features/pooling</a></p>
-<p><strong>Express:</strong><br>    <a href="http://expressjs.com/ru/" target="_blank" rel="noopener">http://expressjs.com/ru/</a></p>
-<p><strong>NPM:</strong><br>    <a href="https://www.npmjs.com/" target="_blank" rel="noopener">https://www.npmjs.com/</a></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://kir9819.github.io/Docs/2018/02/09/[ru]node_express_postgresql/" data-id="cjdhmmaug000pb08dv0d9dwyf" class="article-share-link">Поделиться</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/Docs/tags/Express/">Express</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/Docs/tags/Node/">Node</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/Docs/tags/PostgreSQL/">PostgreSQL</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
     <article id="post-[ru]node_express" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/Docs/2018/02/09/[ru]node_express/" class="article-date">
+    <a href="/Docs/docs/[ru]node_express/" class="article-date">
   <time datetime="2018-02-09T18:54:28.000Z" itemprop="datePublished">2018-02-09</time>
 </a>
     
@@ -180,7 +76,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/Docs/2018/02/09/[ru]node_express/">Инструкция по созданию серверного приложения на nodejs + express</a>
+      <a class="article-title" href="/Docs/docs/[ru]node_express/">Инструкция по созданию серверного приложения на nodejs + express</a>
     </h1>
   
 
@@ -230,7 +126,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://kir9819.github.io/Docs/2018/02/09/[ru]node_express/" data-id="cjdhmmauh000sb08di3m0kb63" class="article-share-link">Поделиться</a>
+      <a data-url="https://kir9819.github.io/Docs/docs/[ru]node_express/" data-id="cjdhp1yz4000o6k8d8gxqmglm" class="article-share-link">Поделиться</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/Docs/tags/Express/">Express</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/Docs/tags/Node/">Node</a></li></ul>
@@ -244,7 +140,7 @@
   
     <article id="post-[ru]node_koa" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/Docs/2018/02/09/[ru]node_koa/" class="article-date">
+    <a href="/Docs/docs/[ru]node_koa/" class="article-date">
   <time datetime="2018-02-09T18:54:28.000Z" itemprop="datePublished">2018-02-09</time>
 </a>
     
@@ -260,7 +156,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/Docs/2018/02/09/[ru]node_koa/">Инструкция по созданию серверного приложения на nodejs + koa</a>
+      <a class="article-title" href="/Docs/docs/[ru]node_koa/">Инструкция по созданию серверного приложения на nodejs + koa</a>
     </h1>
   
 
@@ -334,7 +230,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://kir9819.github.io/Docs/2018/02/09/[ru]node_koa/" data-id="cjdhmmauk000vb08dv554c7uo" class="article-share-link">Поделиться</a>
+      <a data-url="https://kir9819.github.io/Docs/docs/[ru]node_koa/" data-id="cjdhp1z02001w6k8d5oia5ywy" class="article-share-link">Поделиться</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/Docs/tags/Koa/">Koa</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/Docs/tags/Node/">Node</a></li></ul>
@@ -348,7 +244,7 @@
   
     <article id="post-[ru]node_koa_mongodb" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/Docs/2018/02/09/[ru]node_koa_mongodb/" class="article-date">
+    <a href="/Docs/docs/[ru]node_koa_mongodb/" class="article-date">
   <time datetime="2018-02-09T18:54:28.000Z" itemprop="datePublished">2018-02-09</time>
 </a>
     
@@ -364,7 +260,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/Docs/2018/02/09/[ru]node_koa_mongodb/">Инструкция по созданию серверного приложения на nodejs + koa + mongodb</a>
+      <a class="article-title" href="/Docs/docs/[ru]node_koa_mongodb/">Инструкция по созданию серверного приложения на nodejs + koa + mongodb</a>
     </h1>
   
 
@@ -422,10 +318,115 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://kir9819.github.io/Docs/2018/02/09/[ru]node_koa_mongodb/" data-id="cjdhmmaum000yb08dweaho48z" class="article-share-link">Поделиться</a>
+      <a data-url="https://kir9819.github.io/Docs/docs/[ru]node_koa_mongodb/" data-id="cjdhp1z06001x6k8dl2vwti00" class="article-share-link">Поделиться</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/Docs/tags/Koa/">Koa</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/Docs/tags/MongoDB/">MongoDB</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/Docs/tags/Node/">Node</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-[ru]node_koa_postrge" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/Docs/docs/[ru]node_koa_postrge/" class="article-date">
+  <time datetime="2018-02-09T18:54:28.000Z" itemprop="datePublished">2018-02-09</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/Docs/categories/RU/">RU</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/Docs/docs/[ru]node_koa_postrge/">Инструкция по созданию серверного приложения на nodejs + koa + postgresql</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <!-- # Серверное приложение Node.js + Koa + PostgreSQL -->
+<p>Koa - микрофреймфорк, разработанный командой разработчиков фреймворка Express, и призванный использовать самые последние стандарты языка JavaScript.<br>Koa “предлагает” активно использовать синтаксис <code>async/await</code>, который позволяет избавиться от ужасно нечитаемого “callback hell” и является более лучшей альтернативой Promise. Углубляться в синтаксис здесь не будем, это не тема статьи.<br>Сам Koa, являясь микрофреймворком, из коробки содержит только middleware систему, в нем даже нет маршрутизации. Все это можно получить, подключив необходимую функциональность в middleware chain.</p>
+<h3 id="Требования"><a href="#Требования" class="headerlink" title="Требования"></a>Требования</h3><p>Koa требует версию Node не меньше <code>7.6.0</code>.<br>Использовать более старые версии можно, если подключить Babel, но тогда немного теряется посыл самого Koa (см. выше).<br>Версия PostgreSQL нас не интересует, поставим самую последнюю.</p>
+<h3 id="Подготовка-среды"><a href="#Подготовка-среды" class="headerlink" title="Подготовка среды"></a>Подготовка среды</h3><h4 id="Про-Node-js"><a href="#Про-Node-js" class="headerlink" title="Про Node.js"></a>Про Node.js</h4><p>Если Node не установлен, то вам необходимо <a href="https://nodejs.org/en/download/" target="_blank" rel="noopener">сюда</a>. Если же у вас еще и Linux или macOS, можно установить через менеджер пакетов - <a href="https://nodejs.org/en/download/package-manager/" target="_blank" rel="noopener">здесь</a> сказано, как.<br>Чтобы проверить, что с Node все в порядке, можно набрать команду:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ node --version</span><br></pre></td></tr></table></figure>
+<p>Она выведет текущую версию Node.<br>Также и про NPM:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm --version</span><br></pre></td></tr></table></figure>
+<h4 id="Установка-зависимостей"><a href="#Установка-зависимостей" class="headerlink" title="Установка зависимостей"></a>Установка зависимостей</h4><p>Создайте директорию проекта, где будет храниться весь код. Откройте терминал и перейдите в данную директорию.</p>
+<p>Инициализируем среду пакета:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm init</span><br></pre></td></tr></table></figure>
+<p>NPM задаст несколько вопросов. Отвечаем хотя бы на имя пакета и имя автора.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line">$ npm init</span><br><span class="line"></span><br><span class="line">This utility will walk you through creating a package.json file.</span><br><span class="line">It only covers the most common items, and tries to guess sensible defaults.</span><br><span class="line"></span><br><span class="line">See `npm <span class="built_in">help</span> json` <span class="keyword">for</span> definitive documentation on these fields</span><br><span class="line">and exactly what they <span class="keyword">do</span>.</span><br><span class="line"></span><br><span class="line">Use `npm install &lt;pkg&gt;` afterwards to install a package and</span><br><span class="line">save it as a dependency <span class="keyword">in</span> the package.json file.</span><br><span class="line"></span><br><span class="line">Press ^C at any time to quit.</span><br><span class="line">package name: (ex) exampleapp</span><br><span class="line">version: (1.0.0)</span><br><span class="line">description: Example application on Koa and PostgreSQL</span><br><span class="line">entry point: (index.js)</span><br><span class="line"><span class="built_in">test</span> <span class="built_in">command</span>:</span><br><span class="line">git repository:</span><br><span class="line">keywords:</span><br><span class="line">author: Nariman Safiulin &lt;woofilee@gmail.com&gt;</span><br><span class="line">license: (ISC)</span><br><span class="line">About to write to &lt;..&gt;\package.json:</span><br><span class="line"></span><br><span class="line">&#123;</span><br><span class="line">  <span class="string">"name"</span>: <span class="string">"exampleapp"</span>,</span><br><span class="line">  <span class="string">"version"</span>: <span class="string">"1.0.0"</span>,</span><br><span class="line">  <span class="string">"description"</span>: <span class="string">"Example application on Koa and PostgreSQL"</span>,</span><br><span class="line">  <span class="string">"main"</span>: <span class="string">"index.js"</span>,</span><br><span class="line">  <span class="string">"scripts"</span>: &#123;</span><br><span class="line">    <span class="string">"test"</span>: <span class="string">"echo \"Error: no test specified\" &amp;&amp; exit 1"</span></span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="string">"author"</span>: <span class="string">"Nariman Safiulin &lt;woofilee@gmail.com&gt;"</span>,</span><br><span class="line">  <span class="string">"license"</span>: <span class="string">"ISC"</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">Is this ok? (yes)</span><br></pre></td></tr></table></figure>
+<p>У нас должен был появиться файл <code>package.json</code>.</p>
+<p>Поставим <a href="https://github.com/koajs/koa" target="_blank" rel="noopener"><code>koa</code></a>:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm i koa</span><br></pre></td></tr></table></figure>
+<p>Также поставим что-то для роутинга запросов. Будем использовать <a href="https://github.com/alexmingoia/koa-router" target="_blank" rel="noopener"><code>koa-router</code></a>, как самый популярный и полнофункциональный вариант.<br>И заодно <a href="https://github.com/koajs/logger" target="_blank" rel="noopener"><code>koa-logger</code></a>, чтобы видеть наши запросы на сервер в терминале.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm i koa-router koa-logger</span><br></pre></td></tr></table></figure>
+<p>Для общения с базой будем использовать пакет <a href="https://github.com/brianc/node-postgres" target="_blank" rel="noopener"><code>node-postgres</code></a>. Это не ORM, а обычный драйвер с необходимой функциональностью. Его достаточно для микросервисов.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm i pg</span><br></pre></td></tr></table></figure>
+<h4 id="PostgreSQL"><a href="#PostgreSQL" class="headerlink" title="PostgreSQL"></a>PostgreSQL</h4><p>Скачать установщик PostgreSQL можно <a href="https://www.postgresql.org/download/" target="_blank" rel="noopener">отсюда</a>. Там же есть и уже и готовые бинарники в архиве, чтобы ничего не устанавливать, а просто распаковать, и имена пакетов для пакетных менеджеров.<br>Чтобы проверить, что все установилось верно, можно набрать команду:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo -u postgres psql</span><br></pre></td></tr></table></figure>
+<p>Или на Windows (если не создавали базу вручную, введите свое имя пользователя вместо стандартного <code>postgres</code>):</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&gt; psql -U postgres</span><br></pre></td></tr></table></figure>
+<p>На Linux и macOS, как правило, база уже будет запущена сама.<br>На Windows же нужно все включить с пинка:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&gt; initdb -U postgres -D data</span><br><span class="line">&gt; pg_ctl -D data start</span><br><span class="line">&gt; psql -U postgres</span><br></pre></td></tr></table></figure>
+<p>Здесь <code>postgres</code> - это имя пользователя, лучше его указать по умолчанию, для начала, а <code>data</code> - директория, где будут храниться базы, можно указать любую удобную.<br>После чего <code>pg_ctl</code> запускает PostgreSQL (с указанием директории с базами).</p>
+<p>По окончанию, мы должны увидеть приветственную консоль:</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">postgres=#</span><br></pre></td></tr></table></figure>
+<p>Выйти из нее можно, набрав <code>\q</code>.</p>
+<p>По умолчанию за нас будет создана база <code>postgres</code>. Нам этого достаточно для целей этого туторила.</p>
+<h3 id="Hello-World"><a href="#Hello-World" class="headerlink" title="Hello, World!"></a>Hello, World!</h3><p>Создадим файл <code>app.js</code>, и заполним его немного измененным стандартным примером Koa. Из кода достаточно все понятно.</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> Koa = <span class="built_in">require</span>(<span class="string">'koa'</span>);</span><br><span class="line"><span class="keyword">const</span> Router = <span class="built_in">require</span>(<span class="string">'koa-router'</span>);</span><br><span class="line"><span class="keyword">const</span> Logger = <span class="built_in">require</span>(<span class="string">'koa-logger'</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> app = <span class="keyword">new</span> Koa();</span><br><span class="line"><span class="keyword">const</span> router = <span class="keyword">new</span> Router();</span><br><span class="line"></span><br><span class="line"><span class="comment">// Отвечаем миру на GET запросы</span></span><br><span class="line">router.get(<span class="string">'/'</span>, <span class="keyword">async</span> (ctx) =&gt; &#123;</span><br><span class="line">  ctx.body = <span class="string">'Hello, World!\n'</span>;</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">// Отвечаем на имя на GET запросы. :name здесь - это часть URL, и является аргументом</span></span><br><span class="line">router.get(<span class="string">'/:name'</span>, <span class="keyword">async</span> (ctx) =&gt; &#123;</span><br><span class="line">  ctx.body = <span class="string">`Hello, <span class="subst">$&#123;ctx.params.name&#125;</span>!\n`</span>;</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">// Логгер</span></span><br><span class="line">app.use(Logger());</span><br><span class="line"><span class="comment">// Добавим все роуты. Второй middleware отвечает на OPTIONS запросы.</span></span><br><span class="line">app.use(router.routes()).use(router.allowedMethods());</span><br><span class="line"></span><br><span class="line"><span class="comment">// Слушаем порт, запускаем сервер</span></span><br><span class="line">app.listen(<span class="number">3000</span>, () =&gt; &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'Server running on port 3000'</span>);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>Теперь можно запустить сервер:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ node app.js</span><br></pre></td></tr></table></figure>
+<p>Если сервер успешно запустился, то можно зайти в браузер, и в адресной строке перейти по адресу <code>http://localhost:3000/</code>. Мы должны увидеть приветствие. Также, если к адресу добавить имя, т.е. н-р <code>http://localhost:3000/Nariman</code>, мы должны увидеть свое имя в ответе.<br>В терминале мы должны увидеть примерно такую картину:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">$ node app.js</span><br><span class="line"></span><br><span class="line">Server running on port 3000</span><br><span class="line">  &lt;-- GET /</span><br><span class="line">  --&gt; GET / 200 13ms 14b</span><br><span class="line">  &lt;-- GET /favicon.ico</span><br><span class="line">  --&gt; GET /favicon.ico 200 7ms 20b</span><br><span class="line">  &lt;-- GET /Nariman</span><br><span class="line">  --&gt; GET /Nariman 200 10ms 16b</span><br><span class="line">  &lt;-- GET /favicon.ico</span><br><span class="line">  --&gt; GET /favicon.ico 200 7ms 20b</span><br></pre></td></tr></table></figure>
+<p>Теперь свяжемся с базой.<br>Мы будем сразу же использовать пул, а не отдельные подключения. Это распространенная практика, тем более для PostgreSQL. Пул позволяет хранить несколько соединений, тем самым не тратя время на их создание и не заниматься их менеджементом.</p>
+<p>Добавим зависимость:</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> &#123; Pool &#125; = <span class="built_in">require</span>(<span class="string">'pg'</span>);</span><br></pre></td></tr></table></figure>
+<p>Перед запуском сервера, добавим код подключения к базе.</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">app.pool = <span class="keyword">new</span> Pool(&#123;</span><br><span class="line">  user: <span class="string">'postgres'</span>,</span><br><span class="line">  host: <span class="string">'localhost'</span>,</span><br><span class="line">  database: <span class="string">'postgres'</span>,</span><br><span class="line">  password: <span class="string">''</span>, <span class="comment">// По умолчанию пароля нет</span></span><br><span class="line">  port: <span class="number">5432</span>, <span class="comment">// Порт по умолчанию</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>Немного изменим наши роуты, чтобы совершить запрос к базе.</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">router.get(<span class="string">'/'</span>, <span class="keyword">async</span> (ctx) =&gt; &#123;</span><br><span class="line">  <span class="keyword">const</span> &#123; rows &#125; = <span class="keyword">await</span> ctx.app.pool.query(<span class="string">'SELECT $1::text as message'</span>, [<span class="string">'Hello, World!'</span>])</span><br><span class="line">  ctx.body = rows[<span class="number">0</span>].message;</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">router.get(<span class="string">'/:name'</span>, <span class="keyword">async</span> (ctx) =&gt; &#123;</span><br><span class="line">  <span class="keyword">const</span> &#123; rows &#125; = <span class="keyword">await</span> ctx.app.pool.query(<span class="string">'SELECT $1::text as message'</span>, [<span class="string">`Hello, <span class="subst">$&#123;ctx.params.name&#125;</span>!`</span>])</span><br><span class="line">  ctx.body = rows[<span class="number">0</span>].message;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>Сразу заметим, что Koa умеет преобразовывать результат в JSON, если в качестве ответа вернуть не строку. Если вернуть просто <code>rows</code>, мы увидим JSON ответ.</p>
+<p>Можно перезапустить сервер и увидеть результат.</p>
+<h3 id="Вместо-заключения"><a href="#Вместо-заключения" class="headerlink" title="Вместо заключения"></a>Вместо заключения</h3><p>Мы написали все в одном файле. Конечно же, уже для реального проекта, нужно составить правильную архитектуру проекта, а также позаботиться о закрытии пула PostgreSQL и соединений к Koa при выключении сервера.</p>
+<p>В качестве инструмента для общения с базой можно использовать такие библиотеки, как <a href="http://sequelizejs.com/" target="_blank" rel="noopener">Sequelize</a>, <a href="http://bookshelfjs.org/" target="_blank" rel="noopener">Bookshelf</a>, <a href="https://github.com/dmfay/massive-js" target="_blank" rel="noopener">Massive</a>, и <a href="https://github.com/sindresorhus/awesome-nodejs#database" target="_blank" rel="noopener">другие</a>.</p>
+<h3 id="References-and-useful-links"><a href="#References-and-useful-links" class="headerlink" title="References and useful links"></a>References and useful links</h3><ul>
+<li>Node deps<ul>
+<li><a href="https://github.com/koajs/koa" target="_blank" rel="noopener">koa</a> (<a href="http://koajs.com/" target="_blank" rel="noopener">koajs.com</a>)</li>
+<li><a href="https://github.com/alexmingoia/koa-router" target="_blank" rel="noopener">koa-router</a></li>
+<li><a href="https://github.com/koajs/logger" target="_blank" rel="noopener">koa-logger</a></li>
+<li><a href="https://github.com/brianc/node-postgres" target="_blank" rel="noopener">node-postgres</a> (<a href="https://node-postgres.com" target="_blank" rel="noopener">node-postgres.com</a>)</li>
+</ul>
+</li>
+<li><a href="https://www.postgresql.org/" target="_blank" rel="noopener">PostgreSQL</a></li>
+<li><a href="https://www.digitalocean.com/community/tutorials/how-to-install-and-use-postgresql-on-ubuntu-16-04" target="_blank" rel="noopener">How To Install and Use PostgreSQL on Ubuntu 16.04</a> (<a href="https://www.digitalocean.com/community/tutorials/postgresql-ubuntu-16-04-ru" target="_blank" rel="noopener">На русском</a>)</li>
+<li><a href="http://mherman.org/blog/2017/08/23/building-a-restful-api-with-koa-and-postgres/#.Wnr4JqiWbDc" target="_blank" rel="noopener">Building a RESTful API with Koa and Postgres</a></li>
+<li><a href="https://www.smashingmagazine.com/2016/08/getting-started-koa-2-async-functions/" target="_blank" rel="noopener">Building A Server-Side Application With Async Functions and Koa 2</a></li>
+<li><a href="https://github.com/koajs/examples" target="_blank" rel="noopener">Koa examples</a></li>
+<li><a href="https://github.com/koajs/koa/wiki" target="_blank" rel="noopener">Koa wiki</a> - набор ссылок на все то, чем можно обвесить Koa для расширения его функциональности.</li>
+<li><a href="https://github.com/sindresorhus/awesome-nodejs" target="_blank" rel="noopener">Awesome Node.js</a></li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://kir9819.github.io/Docs/docs/[ru]node_koa_postrge/" data-id="cjdhp1z0b001z6k8dfkmik11x" class="article-share-link">Поделиться</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/Docs/tags/Koa/">Koa</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/Docs/tags/Node/">Node</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/Docs/tags/PostgreSQL/">PostgreSQL</a></li></ul>
 
     </footer>
   </div>
@@ -469,7 +470,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Облако меток</h3>
     <div class="widget tagcloud">
-      <a href="/Docs/tags/Express/" style="font-size: 13.33px;">Express</a> <a href="/Docs/tags/Koa/" style="font-size: 16.67px;">Koa</a> <a href="/Docs/tags/MongoDB/" style="font-size: 10px;">MongoDB</a> <a href="/Docs/tags/Node/" style="font-size: 20px;">Node</a> <a href="/Docs/tags/PostgreSQL/" style="font-size: 10px;">PostgreSQL</a>
+      <a href="/Docs/tags/Express/" style="font-size: 15px;">Express</a> <a href="/Docs/tags/Koa/" style="font-size: 15px;">Koa</a> <a href="/Docs/tags/MongoDB/" style="font-size: 10px;">MongoDB</a> <a href="/Docs/tags/Node/" style="font-size: 20px;">Node</a> <a href="/Docs/tags/PostgreSQL/" style="font-size: 10px;">PostgreSQL</a>
     </div>
   </div>
 
@@ -491,23 +492,23 @@
       <ul>
         
           <li>
-            <a href="/Docs/2018/02/09/[ru]Node_express_mongoDb/">Инструкция по созданию серверного приложения на nodejs + express + mongoDB</a>
+            <a href="/Docs/docs/[ru]frameworks_node/">Обзор фреймворков для создания серверного приложения на nodejs</a>
           </li>
         
           <li>
-            <a href="/Docs/2018/02/09/[ru]node_koa_postrge/">Инструкция по созданию серверного приложения на nodejs + koa + postgresql</a>
+            <a href="/Docs/docs/[en]Node_express_mongoDb/">Instruction for creating a server app on Nodejs, Express and MongoDB</a>
           </li>
         
           <li>
-            <a href="/Docs/2018/02/09/[en]node_express/">Instructions for creating a server application on nodejs + express</a>
+            <a href="/Docs/docs/[en]node_express/">Instructions for creating a server application on nodejs + express</a>
           </li>
         
           <li>
-            <a href="/Docs/2018/02/09/[en]frameworks_node/">Review of frameworks for creating a server application on nodejs</a>
+            <a href="/Docs/docs/[en]node_express_postgresql/">Creating simple aplication using Node.js, Express and PostgreSQL.</a>
           </li>
         
           <li>
-            <a href="/Docs/2018/02/09/[en]node_express_postgresql/">Creating simple aplication using Node.js, Express and PostgreSQL.</a>
+            <a href="/Docs/docs/[en]node_koa/">Simple application Node.js + Koa</a>
           </li>
         
       </ul>
@@ -530,9 +531,9 @@
     </div>
     <nav id="mobile-nav">
   
-    <a href="/Docs/" class="mobile-nav-link">Home</a>
+    <a href="/Docs/" class="mobile-nav-link">Домашняя страница</a>
   
-    <a href="/Docs/archives" class="mobile-nav-link">Archives</a>
+    <a href="/Docs/archives" class="mobile-nav-link">Все файлы</a>
   
 </nav>
     
